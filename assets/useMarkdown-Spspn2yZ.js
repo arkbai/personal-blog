@@ -617,7 +617,7 @@ $$O(1) < O(\\log_2 n) < O(n) < O(n \\log_2 n) < O(n^2) < O(n^3) < O(2^n) < O(n!)
 - 每个元素数据类型相同
 - 表头元素、表尾元素、直接前驱、直接后继
 - 基本操作：
-	![Pasted image 20260408122242.png](/images/obsidian/Pasted-image-20260408122242.png)
+	![Pasted image 20260408122242.png](/personal-blog/images/obsidian/Pasted-image-20260408122242.png)
 # 二、线性表的顺序表示
 ## 顺序表
 >用顺序存储（<u>地址连续的存储单元</u>）的方式实现线性表，逻辑上相邻，物理上也相邻；c语言中，顺序表的物理结构用**数组**实现
@@ -679,7 +679,7 @@ void IncreaseSize(SeqList &L,int len){
 - 求表长 & 按序号查找 & 按值查找：遍历链表，O(n)
 ### 1. 单链表的初始化
 带头结点 / 不带头结点
-![Pasted image 20260409115613.png](/images/obsidian/Pasted-image-20260409115613.png)
+![Pasted image 20260409115613.png](/personal-blog/images/obsidian/Pasted-image-20260409115613.png)
 - 定义链表时
 	- struct LNode{...}：将LNode定义为一个结构体
 	- typedef struct{...}LNode：将结构体简写为LNode
@@ -714,8 +714,8 @@ return true;
 \`\`\`
 - **头插法**：从头指针开始查找x的前驱结点
 >扩展：在未知头指针的情况下，对某个结点进行前插操作
->![Pasted image 20260409113928.png](/images/obsidian/Pasted-image-20260409113928.png)
->![Pasted image 20260409114131.png](/images/obsidian/Pasted-image-20260409114131.png)
+>![Pasted image 20260409113928.png](/personal-blog/images/obsidian/Pasted-image-20260409113928.png)
+>![Pasted image 20260409114131.png](/personal-blog/images/obsidian/Pasted-image-20260409114131.png)
 >复制数据到新结点中，将旧结点x作为前驱结点，指向新结点，从而实现了x的前插操作，且时间复杂度从O(n)降到O(1)
 
 ### 4. 删除结点
@@ -793,7 +793,7 @@ bool InsertNextDNode(DNode *p，DNode *s){
 	return true;
 }
 \`\`\`
-![Pasted image 20260410232256.png](/images/obsidian/Pasted-image-20260410232256.png)
+![Pasted image 20260410232256.png](/personal-blog/images/obsidian/Pasted-image-20260410232256.png)
  3. 双链表的删除
 - 注意q结点为最后一个结点时，判断q->next!=NULL
 \`\`\`c
@@ -811,11 +811,11 @@ bool DeleteNextDNode(DNode *p){
 }
 \`\`\`
 - 一般情况 / 最末结点的情况
-![Pasted image 20260410232827.png](/images/obsidian/Pasted-image-20260410232827.png)
+![Pasted image 20260410232827.png](/personal-blog/images/obsidian/Pasted-image-20260410232827.png)
 
 ## 3、循环链表
 ### 循环单链表
-![Pasted image 20260410233507.png](/images/obsidian/Pasted-image-20260410233507.png)
+![Pasted image 20260410233507.png](/personal-blog/images/obsidian/Pasted-image-20260410233507.png)
 
 ###  循环双链表
 1. 初始化：初始空表，prior和next都指向头结点L【非循环双链表 初始指向NULL】
@@ -879,7 +879,7 @@ bool InsertNextDNode(DNode *p，DNode *s){
 - 创建、销毁、增、删、改、查 都是O(1)（无需遍历表）
 
 > 题型：判断栈可能的输出序列
-> ![4edf3896e931267773b52d1f423b859e.png](/images/obsidian/4edf3896e931267773b52d1f423b859e.png)
+> ![4edf3896e931267773b52d1f423b859e.png](/personal-blog/images/obsidian/4edf3896e931267773b52d1f423b859e.png)
 ### 栈的顺序存储结构
 1. 定义
 \`\`\`c
@@ -923,7 +923,7 @@ bool Pop(SqStack &S, ElemType&x){
 	x = S.data[S.top];
 \`\`\`
 >简写：（注意top加减的前后顺序）
->![Pasted image 20260413220414.png](/images/obsidian/Pasted-image-20260413220414.png)
+>![Pasted image 20260413220414.png](/personal-blog/images/obsidian/Pasted-image-20260413220414.png)
 
 ### 栈的链式存储结构
 - 与**单链表**类似，但是每次不移动指针，只对首个结点进行插入/删除
@@ -932,7 +932,7 @@ bool Pop(SqStack &S, ElemType&x){
 两个栈共享同一片数组空间
 初始栈空：top0=-1，top1=maxsize
 栈满的条件：top0+1 == top1
-![Pasted image 20260413220832.png](/images/obsidian/Pasted-image-20260413220832.png)
+![Pasted image 20260413220832.png](/personal-blog/images/obsidian/Pasted-image-20260413220832.png)
 # 二、队列
 ### 队列的定义和基本操作
 只允许在一段进行插入，另一端进行删除的线性表，先进先出 FIFO
@@ -994,7 +994,7 @@ boolDeQueue(SqQueue &Q,ElemType &x){
 > 1. 少用一个单元（rear标识的位置不存储数据）
 > 队满：(Q.rear+1)%MaxSize\\==Q.front
 > 队空：Q.front\\==Q.rear
-> ![Pasted image 20260415230455.png](/images/obsidian/Pasted-image-20260415230455.png)
+> ![Pasted image 20260415230455.png](/personal-blog/images/obsidian/Pasted-image-20260415230455.png)
 > 2. 增加一个size变量，每次入队出队变化
 > 队满：Q.size\\==MaxSize
 > 队空：Q.size\\==0
@@ -1090,11 +1090,11 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 	- 扫描完毕仍有左/右括号单独存在
 2. **算术表达式求值**： 三种表达式：中缀 / 前缀 / 后缀（主要）
 	1. 后缀表达式的计算：
-		![Pasted image 20260416105612.png](/images/obsidian/Pasted-image-20260416105612.png)
+		![Pasted image 20260416105612.png](/personal-blog/images/obsidian/Pasted-image-20260416105612.png)
 	2. 中缀表达式转后缀表达式：
-		![Pasted image 20260416105948.png](/images/obsidian/Pasted-image-20260416105948.png)
+		![Pasted image 20260416105948.png](/personal-blog/images/obsidian/Pasted-image-20260416105948.png)
 	3. 中缀表达式的计算（先转后缀，再计算后缀）
-		 ![Pasted image 20260416110652.png](/images/obsidian/Pasted-image-20260416110652.png)
+		 ![Pasted image 20260416110652.png](/personal-blog/images/obsidian/Pasted-image-20260416110652.png)
 3. **递归**：函数调用栈
 	- 函数调用是LIFO，与栈相同
 	- 递归必须定义：1. 递归体 2. 边界条件（递归出口）
@@ -1115,24 +1115,24 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 二维数组：根据按行/列优先的原则，连续存储数组元素
 >M行N列的二维数组b\\[M]\\[N]中，若按列优先存储，则
 >b\\[i]\\[j]的存储地址=LOC+(j\\*M+i) \\* sizeof(ElemType)
-![Pasted image 20260418102303.png](/images/obsidian/Pasted-image-20260418102303.png)
+![Pasted image 20260418102303.png](/personal-blog/images/obsidian/Pasted-image-20260418102303.png)
 ### 矩阵的存储
 > 注意区分数组是按行 / 按列
 > 数组从0开始，矩阵从a<sub>1,1</sub>开始
 
 - 对称矩阵：只存储主对角线+上/下三角
-	![Pasted image 20260418103401.png](/images/obsidian/Pasted-image-20260418103401.png)
+	![Pasted image 20260418103401.png](/personal-blog/images/obsidian/Pasted-image-20260418103401.png)
 - 三角矩阵：只存储上/下三角【数组中增加一个常数项】
-	![Pasted image 20260418103433.png](/images/obsidian/Pasted-image-20260418103433.png)
+	![Pasted image 20260418103433.png](/personal-blog/images/obsidian/Pasted-image-20260418103433.png)
 - 三对角矩阵（带状矩阵）
-	![Pasted image 20260418102742.png](/images/obsidian/Pasted-image-20260418102742.png)
-	![Pasted image 20260418103613.png](/images/obsidian/Pasted-image-20260418103613.png)
+	![Pasted image 20260418102742.png](/personal-blog/images/obsidian/Pasted-image-20260418102742.png)
+	![Pasted image 20260418103613.png](/personal-blog/images/obsidian/Pasted-image-20260418103613.png)
 
 - 稀疏矩阵：非零元素很少
 	1. 三元组
-		![Pasted image 20260418103004.png](/images/obsidian/Pasted-image-20260418103004.png)
+		![Pasted image 20260418103004.png](/personal-blog/images/obsidian/Pasted-image-20260418103004.png)
 	2. **十字链表法**：行 | 列 | 值；<font color="#974806">同列下个元素</font>，<font color="#9bbb59">同行下个元素</font>
-		![Pasted image 20260418103046.png](/images/obsidian/Pasted-image-20260418103046.png)`,_e=`# 一、串的定义*
+		![Pasted image 20260418103046.png](/personal-blog/images/obsidian/Pasted-image-20260418103046.png)`,_e=`# 一、串的定义*
 >这小节不在考纲范围
 
 字符组成的有限序列
@@ -1158,7 +1158,7 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 > - O(m+n) = 求next数组O(m)+模式匹配最坏时间O(n)
 
 
-![Pasted image 20260418110559.png](/images/obsidian/Pasted-image-20260418110559.png)
+![Pasted image 20260418110559.png](/personal-blog/images/obsidian/Pasted-image-20260418110559.png)
 ### 1、KMP算法的原理
 > - 前缀：除了末尾字符外的子串
 > - 后缀：除了首个字符外的子串
@@ -1177,7 +1177,7 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 - 固定：<u>next\\[0]不存储，next\\[1]=0，next\\[2]=1</u>
 - 计算方法：（手算）
 	匹配失败时，若j=5，可知主串中已经有子串‘abab’，则可以令j=3，从第二个‘ab’继续进行匹配运算；同理观察出匹配失败时的不同情况，得出next表
-	![Pasted image 20260418120907.png](/images/obsidian/Pasted-image-20260418120907.png)
+	![Pasted image 20260418120907.png](/personal-blog/images/obsidian/Pasted-image-20260418120907.png)
 - 含义：
 	在匹配失败时，主串指针i不变，模式串指针j变为失配项的next值
 
@@ -1188,8 +1188,8 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 
 ### 3、KMP的进一步优化
 优化next数组->nextval数组，其他算法不变
-![Pasted image 20260423113758.png](/images/obsidian/Pasted-image-20260423113758.png)
-![Pasted image 20260423113818.png](/images/obsidian/Pasted-image-20260423113818.png)
+![Pasted image 20260423113758.png](/personal-blog/images/obsidian/Pasted-image-20260423113758.png)
+![Pasted image 20260423113818.png](/personal-blog/images/obsidian/Pasted-image-20260423113818.png)
 - nextval\\[1]=0，nextval\\[2]=1
 - j=3时失配，因为j=1 **【由next\\[3]=1得到】** 都是’a‘，令nextval\\[3] = nextval \\[next\\[3]]=0，
 - j=4时失配，因为j=2也是‘b’，令nextval\\[4] = nextval \\[next\\[4]]=1
@@ -1215,7 +1215,7 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 1. 树的结点数 = 所有结点的度数和 +1
 2. 度为m的树：至少有m+1个结点
 3. m叉树：最多有m个结点【分支可以是空树】
-	![Pasted image 20260423220106.png](/images/obsidian/Pasted-image-20260423220106.png)
+	![Pasted image 20260423220106.png](/personal-blog/images/obsidian/Pasted-image-20260423220106.png)
 4. 度为m的树，第i层最多有m<sup>i-1</sup>个结点
 5. 高度为h的m叉树，总共最多有(m<sup>h</sup>-1)/(m-1)个结点【1+m+m<sup>2</sup>+...】；最少有h个结点
 6. 高度为h的，度为m的树，至少有h+m-1个结点 
@@ -1228,7 +1228,7 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 	- 结点i的左孩子为2i，右孩子为2i+1
 2. 完全二叉树： 
 	
-	![Pasted image 20260423221358.png](/images/obsidian/Pasted-image-20260423221358.png)
+	![Pasted image 20260423221358.png](/personal-blog/images/obsidian/Pasted-image-20260423221358.png)
 3. 二叉排序树：左<右
 4. 平衡二叉树：左右子树的深度差最多为1
 
@@ -1261,26 +1261,26 @@ void InOrder(BitTree T){
 \`\`\`
 4. 层次遍历：从左到右遍历同一层的结点
 	- 设置队列，每次访问结点，都令其左右孩子入队，最后遍历队列
-	![Pasted image 20260423224340.png](/images/obsidian/Pasted-image-20260423224340.png)
+	![Pasted image 20260423224340.png](/personal-blog/images/obsidian/Pasted-image-20260423224340.png)
 
 **由遍历序列反向构造二叉树**
 【必须需要有中序序列】
-![Pasted image 20260423224741.png](/images/obsidian/Pasted-image-20260423224741.png)
+![Pasted image 20260423224741.png](/personal-blog/images/obsidian/Pasted-image-20260423224741.png)
 
 ## 线索二叉树
 > 一般二叉树没有前驱，遍历时只能从根节点开始，不方便
 > 线索二叉树：按特定规则将二叉树中所有结点排列成一个线性序列
 
 ### 中序线索二叉树
-![9c4822e034026ba5730552cb093b6d4d.png](/images/obsidian/9c4822e034026ba5730552cb093b6d4d.png)
+![9c4822e034026ba5730552cb093b6d4d.png](/personal-blog/images/obsidian/9c4822e034026ba5730552cb093b6d4d.png)
 - 存储结构：线索链表
-	![Pasted image 20260423225836.png](/images/obsidian/Pasted-image-20260423225836.png)
+	![Pasted image 20260423225836.png](/personal-blog/images/obsidian/Pasted-image-20260423225836.png)
 - 前序与后续线索二叉树
-	![Pasted image 20260423230201.png](/images/obsidian/Pasted-image-20260423230201.png)
+	![Pasted image 20260423230201.png](/personal-blog/images/obsidian/Pasted-image-20260423230201.png)
 
 ### 二叉树的线索化
 - 中序线索化：进行中序遍历的同时，进行线索化
-![Pasted image 20260424101346.png](/images/obsidian/Pasted-image-20260424101346.png)
+![Pasted image 20260424101346.png](/personal-blog/images/obsidian/Pasted-image-20260424101346.png)
 \`\`\`c
 //中序线索化二叉树T 主过程
 void CreateInThread(ThreadTree T){
@@ -1295,7 +1295,7 @@ void CreateInThread(ThreadTree T){
 
 - 先序/后序线索化：和中序类似，通过遍历的过程进行线索化
 ### 线索二叉树的遍历
-![Pasted image 20260424105507.png](/images/obsidian/Pasted-image-20260424105507.png)
+![Pasted image 20260424105507.png](/personal-blog/images/obsidian/Pasted-image-20260424105507.png)
 - 先序/后序--在结点中加入前驱指针，或者从根结点遍历
 - 中序：
 \`\`\`c
@@ -1337,21 +1337,21 @@ voidInorder(ThreadNode *T){
 	- 顺序+链式
 	- 每个结点用链表记录 孩子节点的位置 与 指向下一个孩子结点的指针
 	- 查找该结点的孩子结点方便
-	![Pasted image 20260424110452.png](/images/obsidian/Pasted-image-20260424110452.png)
+	![Pasted image 20260424110452.png](/personal-blog/images/obsidian/Pasted-image-20260424110452.png)
 3. 孩子兄弟表示法
 	- 左孩子+右兄弟
 	- 相当于把树->二叉树
-		![Pasted image 20260424111034.png](/images/obsidian/Pasted-image-20260424111034.png)
+		![Pasted image 20260424111034.png](/personal-blog/images/obsidian/Pasted-image-20260424111034.png)
 
 ### 树、二叉树、森林的转换
 1. 树->二叉树：孩子兄弟表示法⬆
-	![Pasted image 20260424111626.png](/images/obsidian/Pasted-image-20260424111626.png)
+	![Pasted image 20260424111626.png](/personal-blog/images/obsidian/Pasted-image-20260424111626.png)
 2. 森林->二叉树：与树相似，把各树的根结点视为兄弟结点
 3. 二叉树->树/森林：逆推导，结果唯一
 
 ### 树和森林的遍历
 <u>对应关系：可以将树和森林转化为二叉树来遍历</u>
-![Pasted image 20260424112902.png](/images/obsidian/Pasted-image-20260424112902.png)
+![Pasted image 20260424112902.png](/personal-blog/images/obsidian/Pasted-image-20260424112902.png)
 - 树的遍历：与二叉树类似
 	- 先根，后根，层次遍历
 - 森林的遍历
@@ -1367,12 +1367,12 @@ voidInorder(ThreadNode *T){
 > 最优二叉树，WPL最小的二叉树
 
 **哈夫曼树的构造与性质**
-![132f953dfe54eaf9d7b3bb05eb2e56ab.png](/images/obsidian/132f953dfe54eaf9d7b3bb05eb2e56ab.png)
+![132f953dfe54eaf9d7b3bb05eb2e56ab.png](/personal-blog/images/obsidian/132f953dfe54eaf9d7b3bb05eb2e56ab.png)
 
 **哈夫曼编码**
 - 前缀编码（编码互相不为前缀，防止译码错误）
 - 数据的压缩：由于C的频次高，可以使其编码变短来缩短平均编码长度
-![Pasted image 20260425102136.png](/images/obsidian/Pasted-image-20260425102136.png)——>![Pasted image 20260425110250.png](/images/obsidian/Pasted-image-20260425110250.png)
+![Pasted image 20260425102136.png](/personal-blog/images/obsidian/Pasted-image-20260425102136.png)——>![Pasted image 20260425110250.png](/personal-blog/images/obsidian/Pasted-image-20260425110250.png)
 A：00；B：01；C：10；D：11 ——>A：10；B：111；C：0；D：110
 
 
@@ -1413,7 +1413,7 @@ int Find(int S[],int x)(
 }
 \`\`\`
 
-![Pasted image 20260425105335.png](/images/obsidian/Pasted-image-20260425105335.png)`,ye=`# 一、图的基本概念
+![Pasted image 20260425105335.png](/personal-blog/images/obsidian/Pasted-image-20260425105335.png)`,ye=`# 一、图的基本概念
 G=（V，E）其中V表示顶点集，E表示边集
 > - |V|表示图G中顶点个数，|E|表示边的个数
 > - 顶点集V是非空集，边集可以是空集
@@ -1441,26 +1441,26 @@ G=（V，E）其中V表示顶点集，E表示边集
 
 # 二、图的存储及基本操作
 > 主要为**邻接矩阵**与**邻接表**，十字链表与多重表理解原理
-![Pasted image 20260428113601.png](/images/obsidian/Pasted-image-20260428113601.png)
+![Pasted image 20260428113601.png](/personal-blog/images/obsidian/Pasted-image-20260428113601.png)
 ### 邻接矩阵
 无向图/有向图的区别：是否对称【无向图的邻接矩阵为对称矩阵，可以压缩】
-![9a96d1208e9809fc0ab85cc7b6ff3c3b.png](/images/obsidian/9a96d1208e9809fc0ab85cc7b6ff3c3b.png)    ![Pasted image 20260428105059.png](/images/obsidian/Pasted-image-20260428105059.png)
+![9a96d1208e9809fc0ab85cc7b6ff3c3b.png](/personal-blog/images/obsidian/9a96d1208e9809fc0ab85cc7b6ff3c3b.png)    ![Pasted image 20260428105059.png](/personal-blog/images/obsidian/Pasted-image-20260428105059.png)
 - 带权值的邻接矩阵：把1替换为路径长度，0换成无穷大
 - <u>邻接矩阵的n次</u>：A<sup>n</sup>的\\[i]\\[j]位置上的元素表示顶点i到顶点j的长度为n的路径个数
-![Pasted image 20260428105807.png](/images/obsidian/Pasted-image-20260428105807.png)![Pasted image 20260428105734.png](/images/obsidian/Pasted-image-20260428105734.png)
+![Pasted image 20260428105807.png](/personal-blog/images/obsidian/Pasted-image-20260428105807.png)![Pasted image 20260428105734.png](/personal-blog/images/obsidian/Pasted-image-20260428105734.png)
 ### 邻接表
 > 顺序+链式
 > **邻接表不唯一**，即结点顺序可能不同，如A-B-C也可作A-C-B
 > 无向图：2|E|个结点（每条边有重复记录）有向图：|E|个结点
 
-![Pasted image 20260428110416.png](/images/obsidian/Pasted-image-20260428110416.png)
+![Pasted image 20260428110416.png](/personal-blog/images/obsidian/Pasted-image-20260428110416.png)
 ### 十字链表-有向
 横向表示出度，纵向表示入度
-![Pasted image 20260428112225.png](/images/obsidian/Pasted-image-20260428112225.png)
+![Pasted image 20260428112225.png](/personal-blog/images/obsidian/Pasted-image-20260428112225.png)
 ### 邻接多重表-无向
 横向表示与A相连的所有顶点
 纵向表示与B相连的所有顶点
-![9d9f81f7a6dd810e2feed28bcc7f7ce7.png](/images/obsidian/9d9f81f7a6dd810e2feed28bcc7f7ce7.png)
+![9d9f81f7a6dd810e2feed28bcc7f7ce7.png](/personal-blog/images/obsidian/9d9f81f7a6dd810e2feed28bcc7f7ce7.png)
 
 # 三、图的遍历
 ### 广度优先遍历BFS
@@ -1543,7 +1543,7 @@ void DFS(Graph G,int v){
 
 ### 最短路径问题-BFS
 > 只适用于无权图，时间复杂度O(|V|<sup>2</sup>)
-![Pasted image 20260507131249.png](/images/obsidian/Pasted-image-20260507131249.png)
+![Pasted image 20260507131249.png](/personal-blog/images/obsidian/Pasted-image-20260507131249.png)
 \`\`\`c
 //求顶点u到其他顶点的最短路径
 void BFS_MIN_Distance(Graph G,int u){
@@ -1570,7 +1570,7 @@ void BFS_MIN_Distance(Graph G,int u){
 ### 最短路径问题-Dijkstra
 > 带权图/无权图，时间复杂度O(|V|<sup>2</sup>)
 
-![Pasted image 20260507135844.png](/images/obsidian/Pasted-image-20260507135844.png)
+![Pasted image 20260507135844.png](/personal-blog/images/obsidian/Pasted-image-20260507135844.png)
 [最短路径 迪杰斯特拉 dijkstra算法 数据结构与算法](https://www.bilibili.com/video/BV1QESyYGE55/?share_source=copy_web&vd_source=47bc448facac6ed847a6836372d368c3)
 - 负权值带权图：dijstra会失效
 ### 各顶点的最短路径-Floyd
@@ -1649,14 +1649,14 @@ void BFS_MIN_Distance(Graph G,int u){
 
  >封装：一个应用层报文在传输时，**运输层、网络层、链路层**依次给数据增加首部信息，逐步构成**运输层报文段、网络层报文分组（包）、链路层帧**，分别对应**报文交换，分组交换，电路交换**
  
- 数据封装的过程（SDU+PCI ->下一层的PDU）![Pasted image 20260108222628.png](/images/obsidian/Pasted-image-20260108222628.png)
+ 数据封装的过程（SDU+PCI ->下一层的PDU）![Pasted image 20260108222628.png](/personal-blog/images/obsidian/Pasted-image-20260108222628.png)
 ### 三种交换方式
 - **电路交换**：端到端，传输效率高；但建立连接开销大，灵活性差，不支持差错控制
 - **报文交换**（message）：数据以报文为单位在交换机上存储转发，通信线路可以灵活分配；但报文长度不定，不方便管理，存储转发开销大
 - **分组交换**（packet）：将报文定长分为多个分组，每个分组有首部信息（header）；但首部占用少量存储，分组容易失序，丢失
-	![Pasted image 20260104232701.png](/images/obsidian/Pasted-image-20260104232701.png)
+	![Pasted image 20260104232701.png](/personal-blog/images/obsidian/Pasted-image-20260104232701.png)
 - 【虚电路交换：基于分组交换，建立虚拟电路，通信后释放连接，可以保证分组可靠；但现代计算机性能强大，可以在端系统上处理丢包问题】
-![Pasted image 20260104232500.png](/images/obsidian/Pasted-image-20260104232500.png)
+![Pasted image 20260104232500.png](/personal-blog/images/obsidian/Pasted-image-20260104232500.png)
 ### 性能分析
 >信道（Channel）：表示一个方向上信息的通道，有发送信道和接收信道
 >
@@ -1677,7 +1677,7 @@ $$
 	4. 传播时延：很小 电线长度 / 电磁波速度
 5. 时延带宽积：传播时延 x 带宽；已经发出但未到达的比特
 6. 往返时延RTT：表示发送完后，发送方接收到<u>确认</u>的时间
-	![Pasted image 20260108195834.png](/images/obsidian/Pasted-image-20260108195834.png)
+	![Pasted image 20260108195834.png](/personal-blog/images/obsidian/Pasted-image-20260108195834.png)
 7. 信道利用率：有数据通过的时间 / 总时间
 	- 太高会浪费资源
 	- 太低会堵塞
@@ -1704,7 +1704,7 @@ DHCP服务器：67；客户端：68
 ### 进程通信
 进程通信：**进程**通过网络交换**报文**，进程与网络的接口是套接字Socket
 进程寻址：主机地址IP，目的主机接受进程的目的端口号port
-![image-20221208205802541.png](/images/obsidian/image-20221208205802541.png)
+![image-20221208205802541.png](/personal-blog/images/obsidian/image-20221208205802541.png)
 ### 运输协议服务
 应用程序运输服务要求：可靠数据传输，吞吐量，低延时，安全（加密、数据完整性）
 
@@ -1734,7 +1734,7 @@ Web、电子邮件、流式视频、P2P
 - HTTP1.1支持持久lm j连接
 
 非持续/持续连接:TCP开启，一个/多个对象通过连接发送，TCP关闭
-![image-20221208223457565.png](/images/obsidian/image-20221208223457565.png)
+![image-20221208223457565.png](/personal-blog/images/obsidian/image-20221208223457565.png)
 往返时间RTT：指一个短分组从客户到服务器然后在返回客户所需要的时间；
 
 ### HTTP报文
@@ -1752,7 +1752,7 @@ Web、电子邮件、流式视频、P2P
 - HTTP请求报文的cookie首部行；
 - 用户端系统中保留一个cookie文行；
 - 位于Web站点的一个后端数据库；
-![image-20221208231952595.png](/images/obsidian/image-20221208231952595.png)
+![image-20221208231952595.png](/personal-blog/images/obsidian/image-20221208231952595.png)
 ### Web缓存（代理服务器）
 > 把最近的请求/响应保存，客户访问时先请求代理
 
@@ -1769,7 +1769,7 @@ Web、电子邮件、流式视频、P2P
 >DNS既代表一个DNS服务器实现的数据库，也代表一个应用层协议
 ### 分布式，层次数据库
 - DNS缓存
-![image-20230206160128655.png](/images/obsidian/image-20230206160128655.png)
+![image-20230206160128655.png](/personal-blog/images/obsidian/image-20230206160128655.png)
 - 根DNS服务器
 - 顶级域服务器TLD
 - 权威DNS服务器
@@ -1814,7 +1814,7 @@ TCP的socket：四元组表示👉(源IP地址， 源端口号， 目的IP地址
 >2B = 16bit
 >溢出位会回卷，加到最低位
 
-![image-20230208143928024.png](/images/obsidian/image-20230208143928024.png)
+![image-20230208143928024.png](/personal-blog/images/obsidian/image-20230208143928024.png)
 接收方和应是全1，如果出现0则认为该分组错误
 ## 3.4 TCP：面向连接的运输
 ### 特征
@@ -1839,7 +1839,7 @@ TCP的socket：四元组表示👉(源IP地址， 源端口号， 目的IP地址
 	U_{sender}=\\frac{L/R}{RTT+L/R}	$$
 
 - 停止等待 vs 流水线：
-![image-20230212213158363.png](/images/obsidian/image-20230212213158363.png)
+![image-20230212213158363.png](/personal-blog/images/obsidian/image-20230212213158363.png)
 ### 回退N步：GBN协议
 >滑动窗口协议
 
@@ -1853,12 +1853,12 @@ TCP的socket：四元组表示👉(源IP地址， 源端口号， 目的IP地址
 4. 首部长度（以32bit为单位）| 保留 | ...... | 接受窗口
 5. 检验和 | 紧急指针
 6. 可选字段option
-![image-20230213141152970.png](/images/obsidian/image-20230213141152970.png)
+![image-20230213141152970.png](/personal-blog/images/obsidian/image-20230213141152970.png)
 ### 可靠数据运输
 1. 以字节为单位的**滑动窗口**
 	- 发送缓存
 	- 接受缓存
-	![image-20230213140246196.png](/images/obsidian/image-20230213140246196.png)
+	![image-20230213140246196.png](/personal-blog/images/obsidian/image-20230213140246196.png)
 2. 超时重传/**快速重传**
 3. **选择确认** SACK：仅重传漏传的数据
 ### 往返时间的估计
@@ -1879,7 +1879,7 @@ $$
 >TCP是全双工通信，在连接两端的发送方都各自维护一个接收窗口
 
 控制发送速率，使得接受窗口rwnd = 接受缓存 - 已接受KB
-![image-20230214112628843.png](/images/obsidian/image-20230214112628843.png)
+![image-20230214112628843.png](/personal-blog/images/obsidian/image-20230214112628843.png)
 ## 3.5 TCP拥塞控制
 发送窗口 = min（接受窗口rwnd，拥塞窗口cwnd）
 cwnd=1：可以发大小为1个MSS的包
@@ -1889,7 +1889,7 @@ cwnd=1：可以发大小为1个MSS的包
 - **慢启动**
 - **拥塞避免**
 - **快速恢复**
-![IMG_2270.jpg](/images/obsidian/IMG_2270.jpg)
+![IMG_2270.jpg](/personal-blog/images/obsidian/IMG_2270.jpg)
 # 第四章 网络层
 ## 4.1 概述
 ### 转发和路由选择
@@ -1907,17 +1907,17 @@ cwnd=1：可以发大小为1个MSS的包
 ### IPv4编址
 - 点分十进制记法：192.168.0.1（总长32bit，每个十进制数最大255）
 - **接口**
-![image-20230215223524888.png](/images/obsidian/image-20230215223524888.png)
+![image-20230215223524888.png](/personal-blog/images/obsidian/image-20230215223524888.png)
 - **子网划分**
 
 - **子网掩码**：
-![image-20230215224605590.png](/images/obsidian/image-20230215224605590.png)
+![image-20230215224605590.png](/personal-blog/images/obsidian/image-20230215224605590.png)
 ### 无分类编址CIDR
 >Internet的地址分配策略
 ### 远程动态主机配置协议DHCP
 >给某个主机分配一个临时的IP地址
 
-![image-20230215231917425.png](/images/obsidian/image-20230215231917425.png)
+![image-20230215231917425.png](/personal-blog/images/obsidian/image-20230215231917425.png)
 ### 网络地址转换NAT
 >本地网络中的所有设备只共享一个IPv4地址。
 
@@ -1925,10 +1925,10 @@ cwnd=1：可以发大小为1个MSS的包
 
 NAT转换过程：
 
-![image-20230215233757896.png](/images/obsidian/image-20230215233757896.png)
+![image-20230215233757896.png](/personal-blog/images/obsidian/image-20230215233757896.png)
 
 ### IPv4数据报文格式
-![image-20230215164825113.png](/images/obsidian/image-20230215164825113.png)
+![image-20230215164825113.png](/personal-blog/images/obsidian/image-20230215164825113.png)
  版本号：规定了数据报的IP协议版本；
 - 首部长度：在无选项首部时，IP具有==**20字节**==的首部；
 - 服务类型：不同类型的数据报可以相互区分；
@@ -1941,7 +1941,7 @@ NAT转换过程：
 - 选项：允许IP首部被扩展；
 - 数据：运输层报文段；
 ### IPv6报文格式
-![image-20230215234715846.png](/images/obsidian/image-20230215234715846.png)
+![image-20230215234715846.png](/personal-blog/images/obsidian/image-20230215234715846.png)
 - 删掉分片/重新组装；
 - 取消首部检验和；
 - 将变长选项字段由下一个首部指出；
@@ -2004,7 +2004,7 @@ v4迁移到v6：建隧道
 4. 流量控制
 5. 介质访问控制：广播-需要 / 点对点信道-不需要
 ## 5.2 循环冗余检测==CRC==
-![Pasted image 20260108223541.png](/images/obsidian/Pasted-image-20260108223541.png)
+![Pasted image 20260108223541.png](/personal-blog/images/obsidian/Pasted-image-20260108223541.png)
 模2除（相当于异或）直至与最后3位对齐，得到校验位001（R=3位）
 
 ## 5.3 多路访问协议
@@ -2076,9 +2076,9 @@ A向B发送数据报，A先在其ARP高速缓冲中查找B的IP地址。
 - 正交幅度调制(QAM)
 
 ## 6.2 传输介质
-![Pasted image 20260108221506.png](/images/obsidian/Pasted-image-20260108221506.png)
+![Pasted image 20260108221506.png](/personal-blog/images/obsidian/Pasted-image-20260108221506.png)
 ## 6.3 物理层设备
-![Pasted image 20260108221738.png](/images/obsidian/Pasted-image-20260108221738.png)`;function _(){return{async:!1,breaks:!1,extensions:null,gfm:!0,hooks:null,pedantic:!1,renderer:null,silent:!1,tokenizer:null,walkTokens:null}}var v=_();function y(e){v=e}var b={exec:()=>null};function x(e,t=``){let n=typeof e==`string`?e:e.source,r={replace:(e,t)=>{let i=typeof t==`string`?t:t.source;return i=i.replace(S.caret,`$1`),n=n.replace(e,i),r},getRegex:()=>new RegExp(n,t)};return r}var Ce=((e=``)=>{try{return!!RegExp(`(?<=1)(?<!1)`+e)}catch{return!1}})(),S={codeRemoveIndent:/^(?: {1,4}| {0,3}\t)/gm,outputLinkReplace:/\\([\[\]])/g,indentCodeCompensation:/^(\s+)(?:```)/,beginningSpace:/^\s+/,endingHash:/#$/,startingSpaceChar:/^ /,endingSpaceChar:/ $/,nonSpaceChar:/[^ ]/,newLineCharGlobal:/\n/g,tabCharGlobal:/\t/g,multipleSpaceGlobal:/\s+/g,blankLine:/^[ \t]*$/,doubleBlankLine:/\n[ \t]*\n[ \t]*$/,blockquoteStart:/^ {0,3}>/,blockquoteSetextReplace:/\n {0,3}((?:=+|-+) *)(?=\n|$)/g,blockquoteSetextReplace2:/^ {0,3}>[ \t]?/gm,listReplaceNesting:/^ {1,4}(?=( {4})*[^ ])/g,listIsTask:/^\[[ xX]\] +\S/,listReplaceTask:/^\[[ xX]\] +/,listTaskCheckbox:/\[[ xX]\]/,anyLine:/\n.*\n/,hrefBrackets:/^<(.*)>$/,tableDelimiter:/[:|]/,tableAlignChars:/^\||\| *$/g,tableRowBlankLine:/\n[ \t]*$/,tableAlignRight:/^ *-+: *$/,tableAlignCenter:/^ *:-+: *$/,tableAlignLeft:/^ *:-+ *$/,startATag:/^<a /i,endATag:/^<\/a>/i,startPreScriptTag:/^<(pre|code|kbd|script)(\s|>)/i,endPreScriptTag:/^<\/(pre|code|kbd|script)(\s|>)/i,startAngleBracket:/^</,endAngleBracket:/>$/,pedanticHrefTitle:/^([^'"]*[^\s])\s+(['"])(.*)\2/,unicodeAlphaNumeric:/[\p{L}\p{N}]/u,escapeTest:/[&<>"']/,escapeReplace:/[&<>"']/g,escapeTestNoEncode:/[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/,escapeReplaceNoEncode:/[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/g,caret:/(^|[^\[])\^/g,percentDecode:/%25/g,findPipe:/\|/g,splitPipe:/ \|/,slashPipe:/\\\|/g,carriageReturn:/\r\n|\r/g,spaceLine:/^ +$/gm,notSpaceStart:/^\S*/,endingNewline:/\n$/,listItemRegex:e=>RegExp(`^( {0,3}${e})((?:[	 ][^\\n]*)?(?:\\n|$))`),nextBulletRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}(?:[*+-]|\\d{1,9}[.)])((?:[ 	][^\\n]*)?(?:\\n|$))`),hrRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}((?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$)`),fencesBeginRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}(?:\`\`\`|~~~)`),headingBeginRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}#`),htmlBeginRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}<(?:[a-z].*>|!--)`,`i`),blockquoteBeginRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}>`)},we=/^(?:[ \t]*(?:\n|$))+/,Te=/^((?: {4}| {0,3}\t)[^\n]+(?:\n(?:[ \t]*(?:\n|$))*)?)+/,Ee=/^ {0,3}(`{3,}(?=[^`\n]*(?:\n|$))|~{3,})([^\n]*)(?:\n|$)(?:|([\s\S]*?)(?:\n|$))(?: {0,3}\1[~`]* *(?=\n|$)|$)/,C=/^ {0,3}((?:-[\t ]*){3,}|(?:_[ \t]*){3,}|(?:\*[ \t]*){3,})(?:\n+|$)/,De=/^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/,w=/ {0,3}(?:[*+-]|\d{1,9}[.)])/,T=/^(?!bull |blockCode|fences|blockquote|heading|html|table)((?:.|\n(?!\s*?\n|bull |blockCode|fences|blockquote|heading|html|table))+?)\n {0,3}(=+|-+) *(?:\n+|$)/,E=x(T).replace(/bull/g,w).replace(/blockCode/g,/(?: {4}| {0,3}\t)/).replace(/fences/g,/ {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g,/ {0,3}>/).replace(/heading/g,/ {0,3}#{1,6}/).replace(/html/g,/ {0,3}<[^\n>]+>\n/).replace(/\|table/g,``).getRegex(),Oe=x(T).replace(/bull/g,w).replace(/blockCode/g,/(?: {4}| {0,3}\t)/).replace(/fences/g,/ {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g,/ {0,3}>/).replace(/heading/g,/ {0,3}#{1,6}/).replace(/html/g,/ {0,3}<[^\n>]+>\n/).replace(/table/g,/ {0,3}\|?(?:[:\- ]*\|)+[\:\- ]*\n/).getRegex(),D=/^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html|table| +\n)[^\n]+)*)/,ke=/^[^\n]+/,O=/(?!\s*\])(?:\\[\s\S]|[^\[\]\\])+/,Ae=x(/^ {0,3}\[(label)\]: *(?:\n[ \t]*)?([^<\s][^\s]*|<.*?>)(?:(?: +(?:\n[ \t]*)?| *\n[ \t]*)(title))? *(?:\n+|$)/).replace(`label`,O).replace(`title`,/(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/).getRegex(),je=x(/^(bull)([ \t][^\n]+?)?(?:\n|$)/).replace(/bull/g,w).getRegex(),k=`address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul`,A=/<!--(?:-?>|[\s\S]*?(?:-->|$))/,Me=x(`^ {0,3}(?:<(script|pre|style|textarea)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)|comment[^\\n]*(\\n+|$)|<\\?[\\s\\S]*?(?:\\?>\\n*|$)|<![A-Z][\\s\\S]*?(?:>\\n*|$)|<!\\[CDATA\\[[\\s\\S]*?(?:\\]\\]>\\n*|$)|</?(tag)(?: +|\\n|/?>)[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$)|<(?!script|pre|style|textarea)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$)|</(?!script|pre|style|textarea)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$))`,`i`).replace(`comment`,A).replace(`tag`,k).replace(`attribute`,/ +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/).getRegex(),j=x(D).replace(`hr`,C).replace(`heading`,` {0,3}#{1,6}(?:\\s|$)`).replace(`|lheading`,``).replace(`|table`,``).replace(`blockquote`,` {0,3}>`).replace(`fences`," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace(`list`,` {0,3}(?:[*+-]|1[.)])[ \\t]`).replace(`html`,`</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)`).replace(`tag`,k).getRegex(),M={blockquote:x(/^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/).replace(`paragraph`,j).getRegex(),code:Te,def:Ae,fences:Ee,heading:De,hr:C,html:Me,lheading:E,list:je,newline:we,paragraph:j,table:b,text:ke},N=x(`^ *([^\\n ].*)\\n {0,3}((?:\\| *)?:?-+:? *(?:\\| *:?-+:? *)*(?:\\| *)?)(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)`).replace(`hr`,C).replace(`heading`,` {0,3}#{1,6}(?:\\s|$)`).replace(`blockquote`,` {0,3}>`).replace(`code`,`(?: {4}| {0,3}	)[^\\n]`).replace(`fences`," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace(`list`,` {0,3}(?:[*+-]|1[.)])[ \\t]`).replace(`html`,`</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)`).replace(`tag`,k).getRegex(),Ne={...M,lheading:Oe,table:N,paragraph:x(D).replace(`hr`,C).replace(`heading`,` {0,3}#{1,6}(?:\\s|$)`).replace(`|lheading`,``).replace(`table`,N).replace(`blockquote`,` {0,3}>`).replace(`fences`," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace(`list`,` {0,3}(?:[*+-]|1[.)])[ \\t]`).replace(`html`,`</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)`).replace(`tag`,k).getRegex()},Pe={...M,html:x(`^ *(?:comment *(?:\\n|\\s*$)|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)|<tag(?:"[^"]*"|'[^']*'|\\s[^'"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))`).replace(`comment`,A).replace(/tag/g,`(?!(?:a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)\\b)\\w+(?!:|[^\\w\\s@]*@)\\b`).getRegex(),def:/^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/,heading:/^(#{1,6})(.*)(?:\n+|$)/,fences:b,lheading:/^(.+?)\n {0,3}(=+|-+) *(?:\n+|$)/,paragraph:x(D).replace(`hr`,C).replace(`heading`,` *#{1,6} *[^
+![Pasted image 20260108221738.png](/personal-blog/images/obsidian/Pasted-image-20260108221738.png)`;function _(){return{async:!1,breaks:!1,extensions:null,gfm:!0,hooks:null,pedantic:!1,renderer:null,silent:!1,tokenizer:null,walkTokens:null}}var v=_();function y(e){v=e}var b={exec:()=>null};function x(e,t=``){let n=typeof e==`string`?e:e.source,r={replace:(e,t)=>{let i=typeof t==`string`?t:t.source;return i=i.replace(S.caret,`$1`),n=n.replace(e,i),r},getRegex:()=>new RegExp(n,t)};return r}var Ce=((e=``)=>{try{return!!RegExp(`(?<=1)(?<!1)`+e)}catch{return!1}})(),S={codeRemoveIndent:/^(?: {1,4}| {0,3}\t)/gm,outputLinkReplace:/\\([\[\]])/g,indentCodeCompensation:/^(\s+)(?:```)/,beginningSpace:/^\s+/,endingHash:/#$/,startingSpaceChar:/^ /,endingSpaceChar:/ $/,nonSpaceChar:/[^ ]/,newLineCharGlobal:/\n/g,tabCharGlobal:/\t/g,multipleSpaceGlobal:/\s+/g,blankLine:/^[ \t]*$/,doubleBlankLine:/\n[ \t]*\n[ \t]*$/,blockquoteStart:/^ {0,3}>/,blockquoteSetextReplace:/\n {0,3}((?:=+|-+) *)(?=\n|$)/g,blockquoteSetextReplace2:/^ {0,3}>[ \t]?/gm,listReplaceNesting:/^ {1,4}(?=( {4})*[^ ])/g,listIsTask:/^\[[ xX]\] +\S/,listReplaceTask:/^\[[ xX]\] +/,listTaskCheckbox:/\[[ xX]\]/,anyLine:/\n.*\n/,hrefBrackets:/^<(.*)>$/,tableDelimiter:/[:|]/,tableAlignChars:/^\||\| *$/g,tableRowBlankLine:/\n[ \t]*$/,tableAlignRight:/^ *-+: *$/,tableAlignCenter:/^ *:-+: *$/,tableAlignLeft:/^ *:-+ *$/,startATag:/^<a /i,endATag:/^<\/a>/i,startPreScriptTag:/^<(pre|code|kbd|script)(\s|>)/i,endPreScriptTag:/^<\/(pre|code|kbd|script)(\s|>)/i,startAngleBracket:/^</,endAngleBracket:/>$/,pedanticHrefTitle:/^([^'"]*[^\s])\s+(['"])(.*)\2/,unicodeAlphaNumeric:/[\p{L}\p{N}]/u,escapeTest:/[&<>"']/,escapeReplace:/[&<>"']/g,escapeTestNoEncode:/[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/,escapeReplaceNoEncode:/[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/g,caret:/(^|[^\[])\^/g,percentDecode:/%25/g,findPipe:/\|/g,splitPipe:/ \|/,slashPipe:/\\\|/g,carriageReturn:/\r\n|\r/g,spaceLine:/^ +$/gm,notSpaceStart:/^\S*/,endingNewline:/\n$/,listItemRegex:e=>RegExp(`^( {0,3}${e})((?:[	 ][^\\n]*)?(?:\\n|$))`),nextBulletRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}(?:[*+-]|\\d{1,9}[.)])((?:[ 	][^\\n]*)?(?:\\n|$))`),hrRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}((?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$)`),fencesBeginRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}(?:\`\`\`|~~~)`),headingBeginRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}#`),htmlBeginRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}<(?:[a-z].*>|!--)`,`i`),blockquoteBeginRegex:e=>RegExp(`^ {0,${Math.min(3,e-1)}}>`)},we=/^(?:[ \t]*(?:\n|$))+/,Te=/^((?: {4}| {0,3}\t)[^\n]+(?:\n(?:[ \t]*(?:\n|$))*)?)+/,Ee=/^ {0,3}(`{3,}(?=[^`\n]*(?:\n|$))|~{3,})([^\n]*)(?:\n|$)(?:|([\s\S]*?)(?:\n|$))(?: {0,3}\1[~`]* *(?=\n|$)|$)/,C=/^ {0,3}((?:-[\t ]*){3,}|(?:_[ \t]*){3,}|(?:\*[ \t]*){3,})(?:\n+|$)/,De=/^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/,w=/ {0,3}(?:[*+-]|\d{1,9}[.)])/,T=/^(?!bull |blockCode|fences|blockquote|heading|html|table)((?:.|\n(?!\s*?\n|bull |blockCode|fences|blockquote|heading|html|table))+?)\n {0,3}(=+|-+) *(?:\n+|$)/,E=x(T).replace(/bull/g,w).replace(/blockCode/g,/(?: {4}| {0,3}\t)/).replace(/fences/g,/ {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g,/ {0,3}>/).replace(/heading/g,/ {0,3}#{1,6}/).replace(/html/g,/ {0,3}<[^\n>]+>\n/).replace(/\|table/g,``).getRegex(),Oe=x(T).replace(/bull/g,w).replace(/blockCode/g,/(?: {4}| {0,3}\t)/).replace(/fences/g,/ {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g,/ {0,3}>/).replace(/heading/g,/ {0,3}#{1,6}/).replace(/html/g,/ {0,3}<[^\n>]+>\n/).replace(/table/g,/ {0,3}\|?(?:[:\- ]*\|)+[\:\- ]*\n/).getRegex(),D=/^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html|table| +\n)[^\n]+)*)/,ke=/^[^\n]+/,O=/(?!\s*\])(?:\\[\s\S]|[^\[\]\\])+/,Ae=x(/^ {0,3}\[(label)\]: *(?:\n[ \t]*)?([^<\s][^\s]*|<.*?>)(?:(?: +(?:\n[ \t]*)?| *\n[ \t]*)(title))? *(?:\n+|$)/).replace(`label`,O).replace(`title`,/(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/).getRegex(),je=x(/^(bull)([ \t][^\n]+?)?(?:\n|$)/).replace(/bull/g,w).getRegex(),k=`address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul`,A=/<!--(?:-?>|[\s\S]*?(?:-->|$))/,Me=x(`^ {0,3}(?:<(script|pre|style|textarea)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)|comment[^\\n]*(\\n+|$)|<\\?[\\s\\S]*?(?:\\?>\\n*|$)|<![A-Z][\\s\\S]*?(?:>\\n*|$)|<!\\[CDATA\\[[\\s\\S]*?(?:\\]\\]>\\n*|$)|</?(tag)(?: +|\\n|/?>)[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$)|<(?!script|pre|style|textarea)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$)|</(?!script|pre|style|textarea)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$))`,`i`).replace(`comment`,A).replace(`tag`,k).replace(`attribute`,/ +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/).getRegex(),j=x(D).replace(`hr`,C).replace(`heading`,` {0,3}#{1,6}(?:\\s|$)`).replace(`|lheading`,``).replace(`|table`,``).replace(`blockquote`,` {0,3}>`).replace(`fences`," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace(`list`,` {0,3}(?:[*+-]|1[.)])[ \\t]`).replace(`html`,`</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)`).replace(`tag`,k).getRegex(),M={blockquote:x(/^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/).replace(`paragraph`,j).getRegex(),code:Te,def:Ae,fences:Ee,heading:De,hr:C,html:Me,lheading:E,list:je,newline:we,paragraph:j,table:b,text:ke},N=x(`^ *([^\\n ].*)\\n {0,3}((?:\\| *)?:?-+:? *(?:\\| *:?-+:? *)*(?:\\| *)?)(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)`).replace(`hr`,C).replace(`heading`,` {0,3}#{1,6}(?:\\s|$)`).replace(`blockquote`,` {0,3}>`).replace(`code`,`(?: {4}| {0,3}	)[^\\n]`).replace(`fences`," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace(`list`,` {0,3}(?:[*+-]|1[.)])[ \\t]`).replace(`html`,`</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)`).replace(`tag`,k).getRegex(),Ne={...M,lheading:Oe,table:N,paragraph:x(D).replace(`hr`,C).replace(`heading`,` {0,3}#{1,6}(?:\\s|$)`).replace(`|lheading`,``).replace(`table`,N).replace(`blockquote`,` {0,3}>`).replace(`fences`," {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace(`list`,` {0,3}(?:[*+-]|1[.)])[ \\t]`).replace(`html`,`</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)`).replace(`tag`,k).getRegex()},Pe={...M,html:x(`^ *(?:comment *(?:\\n|\\s*$)|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)|<tag(?:"[^"]*"|'[^']*'|\\s[^'"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))`).replace(`comment`,A).replace(/tag/g,`(?!(?:a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)\\b)\\w+(?!:|[^\\w\\s@]*@)\\b`).getRegex(),def:/^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/,heading:/^(#{1,6})(.*)(?:\n+|$)/,fences:b,lheading:/^(.+?)\n {0,3}(=+|-+) *(?:\n+|$)/,paragraph:x(D).replace(`hr`,C).replace(`heading`,` *#{1,6} *[^
 ]`).replace(`lheading`,E).replace(`|table`,``).replace(`blockquote`,` {0,3}>`).replace(`|fences`,``).replace(`|list`,``).replace(`|html`,``).replace(`|tag`,``).getRegex()},Fe=/^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/,Ie=/^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,P=/^( {2,}|\\)\n(?!\s*$)/,Le=/^(`+|[^`])(?:(?= {2,}\n)|[\s\S]*?(?:(?=[\\<!\[`*_]|\b_|$)|[^ ](?= {2,}\n)))/,F=/[\p{P}\p{S}]/u,I=/[\s\p{P}\p{S}]/u,L=/[^\s\p{P}\p{S}]/u,Re=x(/^((?![*_])punctSpace)/,`u`).replace(/punctSpace/g,I).getRegex(),ze=/(?!~)[\p{P}\p{S}]/u,Be=/(?!~)[\s\p{P}\p{S}]/u,Ve=/(?:[^\s\p{P}\p{S}]|~)/u,He=x(/link|precode-code|html/,`g`).replace(`link`,/\[(?:[^\[\]`]|(?<a>`+)[^`]+\k<a>(?!`))*?\]\((?:\\[\s\S]|[^\\\(\)]|\((?:\\[\s\S]|[^\\\(\)])*\))*\)/).replace(`precode-`,Ce?"(?<!`)()":"(^^|[^`])").replace(`code`,/(?<b>`+)[^`]+\k<b>(?!`)/).replace(`html`,/<(?! )[^<>]*?>/).getRegex(),Ue=/^(?:\*+(?:((?!\*)punct)|([^\s*]))?)|^_+(?:((?!_)punct)|([^\s_]))?/,We=x(Ue,`u`).replace(/punct/g,F).getRegex(),Ge=x(Ue,`u`).replace(/punct/g,ze).getRegex(),Ke=`^[^_*]*?__[^_*]*?\\*[^_*]*?(?=__)|[^*]+(?=[^*])|(?!\\*)punct(\\*+)(?=[\\s]|$)|notPunctSpace(\\*+)(?!\\*)(?=punctSpace|$)|(?!\\*)punctSpace(\\*+)(?=notPunctSpace)|[\\s](\\*+)(?!\\*)(?=punct)|(?!\\*)punct(\\*+)(?!\\*)(?=punct)|notPunctSpace(\\*+)(?=notPunctSpace)`,qe=x(Ke,`gu`).replace(/notPunctSpace/g,L).replace(/punctSpace/g,I).replace(/punct/g,F).getRegex(),Je=x(Ke,`gu`).replace(/notPunctSpace/g,Ve).replace(/punctSpace/g,Be).replace(/punct/g,ze).getRegex(),Ye=x(`^[^_*]*?\\*\\*[^_*]*?_[^_*]*?(?=\\*\\*)|[^_]+(?=[^_])|(?!_)punct(_+)(?=[\\s]|$)|notPunctSpace(_+)(?!_)(?=punctSpace|$)|(?!_)punctSpace(_+)(?=notPunctSpace)|[\\s](_+)(?!_)(?=punct)|(?!_)punct(_+)(?!_)(?=punct)`,`gu`).replace(/notPunctSpace/g,L).replace(/punctSpace/g,I).replace(/punct/g,F).getRegex(),Xe=x(/^~~?(?:((?!~)punct)|[^\s~])/,`u`).replace(/punct/g,F).getRegex(),Ze=x(`^[^~]+(?=[^~])|(?!~)punct(~~?)(?=[\\s]|$)|notPunctSpace(~~?)(?!~)(?=punctSpace|$)|(?!~)punctSpace(~~?)(?=notPunctSpace)|[\\s](~~?)(?!~)(?=punct)|(?!~)punct(~~?)(?!~)(?=punct)|notPunctSpace(~~?)(?=notPunctSpace)`,`gu`).replace(/notPunctSpace/g,L).replace(/punctSpace/g,I).replace(/punct/g,F).getRegex(),Qe=x(/\\(punct)/,`gu`).replace(/punct/g,F).getRegex(),$e=x(/^<(scheme:[^\s\x00-\x1f<>]*|email)>/).replace(`scheme`,/[a-zA-Z][a-zA-Z0-9+.-]{1,31}/).replace(`email`,/[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/).getRegex(),et=x(A).replace(`(?:-->|$)`,`-->`).getRegex(),tt=x(`^comment|^</[a-zA-Z][\\w:-]*\\s*>|^<[a-zA-Z][\\w-]*(?:attribute)*?\\s*/?>|^<\\?[\\s\\S]*?\\?>|^<![a-zA-Z]+\\s[\\s\\S]*?>|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>`).replace(`comment`,et).replace(`attribute`,/\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/).getRegex(),R=/(?:\[(?:\\[\s\S]|[^\[\]\\])*\]|\\[\s\S]|`+(?!`)[^`]*?`+(?!`)|``+(?=\])|[^\[\]\\`])*?/,nt=x(/^!?\[(label)\]\(\s*(href)(?:(?:[ \t]+(?:\n[ \t]*)?|\n[ \t]*)(title))?\s*\)/).replace(`label`,R).replace(`href`,/<(?:\\.|[^\n<>\\])+>|[^ \t\n\x00-\x1f]*/).replace(`title`,/"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/).getRegex(),rt=x(/^!?\[(label)\]\[(ref)\]/).replace(`label`,R).replace(`ref`,O).getRegex(),it=x(/^!?\[(ref)\](?:\[\])?/).replace(`ref`,O).getRegex(),at=x(`reflink|nolink(?!\\()`,`g`).replace(`reflink`,rt).replace(`nolink`,it).getRegex(),ot=/[hH][tT][tT][pP][sS]?|[fF][tT][pP]/,z={_backpedal:b,anyPunctuation:Qe,autolink:$e,blockSkip:He,br:P,code:Ie,del:b,delLDelim:b,delRDelim:b,emStrongLDelim:We,emStrongRDelimAst:qe,emStrongRDelimUnd:Ye,escape:Fe,link:nt,nolink:it,punctuation:Re,reflink:rt,reflinkSearch:at,tag:tt,text:Le,url:b},st={...z,link:x(/^!?\[(label)\]\((.*?)\)/).replace(`label`,R).getRegex(),reflink:x(/^!?\[(label)\]\s*\[([^\]]*)\]/).replace(`label`,R).getRegex()},B={...z,emStrongRDelimAst:Je,emStrongLDelim:Ge,delLDelim:Xe,delRDelim:Ze,url:x(/^((?:protocol):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/).replace(`protocol`,ot).replace(`email`,/[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/).getRegex(),_backpedal:/(?:[^?!.,:;*_'"~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_'"~)]+(?!$))+/,del:/^(~~?)(?=[^\s~])((?:\\[\s\S]|[^\\])*?(?:\\[\s\S]|[^\s~\\]))\1(?=[^~]|$)/,text:x(/^([`~]+|[^`~])(?:(?= {2,}\n)|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|protocol:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)))/).replace(`protocol`,ot).getRegex()},ct={...B,br:x(P).replace(`{2,}`,`*`).getRegex(),text:x(B.text).replace(`\\b_`,`\\b_| {2,}\\n`).replace(/\{2,\}/g,`*`).getRegex()},V={normal:M,gfm:Ne,pedantic:Pe},H={normal:z,gfm:B,breaks:ct,pedantic:st},lt={"&":`&amp;`,"<":`&lt;`,">":`&gt;`,'"':`&quot;`,"'":`&#39;`},ut=e=>lt[e];function U(e,t){if(t){if(S.escapeTest.test(e))return e.replace(S.escapeReplace,ut)}else if(S.escapeTestNoEncode.test(e))return e.replace(S.escapeReplaceNoEncode,ut);return e}function dt(e){try{e=encodeURI(e).replace(S.percentDecode,`%`)}catch{return null}return e}function ft(e,t){let n=e.replace(S.findPipe,(e,t,n)=>{let r=!1,i=t;for(;--i>=0&&n[i]===`\\`;)r=!r;return r?`|`:` |`}).split(S.splitPipe),r=0;if(n[0].trim()||n.shift(),n.length>0&&!n.at(-1)?.trim()&&n.pop(),t)if(n.length>t)n.splice(t);else for(;n.length<t;)n.push(``);for(;r<n.length;r++)n[r]=n[r].trim().replace(S.slashPipe,`|`);return n}function W(e,t,n){let r=e.length;if(r===0)return``;let i=0;for(;i<r;){let a=e.charAt(r-i-1);if(a===t&&!n)i++;else if(a!==t&&n)i++;else break}return e.slice(0,r-i)}function G(e){let t=e.split(`
 `),n=t.length-1;for(;n>=0&&S.blankLine.test(t[n]);)n--;return t.length-n<=2?e:t.slice(0,n+1).join(`
 `)}function pt(e,t){if(e.indexOf(t[1])===-1)return-1;let n=0;for(let r=0;r<e.length;r++)if(e[r]===`\\`)r++;else if(e[r]===t[0])n++;else if(e[r]===t[1]&&(n--,n<0))return r;return n>0?-2:-1}function mt(e,t=0){let n=t,r=``;for(let t of e)if(t===`	`){let e=4-n%4;r+=` `.repeat(e),n+=e}else r+=t,n++;return r}function ht(e,t,n,r,i){let a=t.href,o=t.title||null,s=e[1].replace(i.other.outputLinkReplace,`$1`);r.state.inLink=!0;let c={type:e[0].charAt(0)===`!`?`image`:`link`,raw:n,href:a,title:o,text:s,tokens:r.inlineTokens(s)};return r.state.inLink=!1,c}function gt(e,t,n){let r=e.match(n.other.indentCodeCompensation);if(r===null)return t;let i=r[1];return t.split(`
