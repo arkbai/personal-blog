@@ -3,6 +3,8 @@ import { ref, onMounted } from 'vue'
 import LayoutWithSidebar from '../components/LayoutWithSidebar.vue'
 import { useMarkdown } from '../composables/useMarkdown'
 
+const BASE = import.meta.env.BASE_URL
+
 const {
   posts, loading, activePost, tocItems,
   categories, searchQuery, filteredPosts, selectPost,
@@ -50,7 +52,7 @@ onMounted(() => {
       @click="easterEggVisible = false"
     >
       <img
-        :src="`${import.meta.env.BASE_URL}gif/ca9227357326d827ea8c7268590aa051.jpg`"
+        :src="BASE + 'gif/ca9227357326d827ea8c7268590aa051.jpg'"
         alt="彩蛋"
         class="w-20 h-20 object-cover rounded-xl shadow-lg border-2 border-white/60 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300"
       />
