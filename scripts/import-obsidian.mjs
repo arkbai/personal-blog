@@ -93,7 +93,7 @@ function convertObsidian(content) {
     } else if (imageMap.has(cleanRef)) {
       try { copyFileSync(imageMap.get(cleanRef), join(IMAGES_DIR, safeName)) } catch {}
     }
-    return `![${imageName}](/images/obsidian/${encodeURIComponent(safeName)})`
+    return `![${imageName}](/personal-blog/images/obsidian/${encodeURIComponent(safeName)})`
   })
 
   // 2. Convert wiki links: [[Page]] or [[Page|alias]]

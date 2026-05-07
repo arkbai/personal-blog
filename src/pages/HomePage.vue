@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 
+const BASE = import.meta.env.BASE_URL
 const router = useRouter()
 
 const phase = ref('idle')
@@ -54,7 +55,7 @@ function startAnimation() {
     <!-- Fixed background image -->
     <div
       class="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
-      style="background-image: url('/images/background/pic-1-chr-0007-ikut__2048x1024__53195f50c069.webp')"
+      :style="{ backgroundImage: `url('${BASE}images/background/pic-1-chr-0007-ikut__2048x1024__53195f50c069.webp')` }"
     />
 
     <!-- Overlay: transitions between clear (welcome) and blurred (cards) -->
@@ -136,7 +137,7 @@ function startAnimation() {
 <style scoped>
 @font-face {
   font-family: 'ZhouFang';
-  src: url('/fonts/ZhouFangRiMingTiXieTi-2.ttf') format('truetype');
+  src: url('fonts/ZhouFangRiMingTiXieTi-2.ttf') format('truetype');
   font-display: swap;
 }
 

@@ -50,7 +50,7 @@ onMounted(() => {
       @click="easterEggVisible = false"
     >
       <img
-        src="/gif/ca9227357326d827ea8c7268590aa051.jpg"
+        :src="`${import.meta.env.BASE_URL}gif/ca9227357326d827ea8c7268590aa051.jpg`"
         alt="彩蛋"
         class="w-20 h-20 object-cover rounded-xl shadow-lg border-2 border-white/60 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300"
       />

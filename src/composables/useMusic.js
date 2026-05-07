@@ -8,9 +8,11 @@ const currentTime = ref(0)
 const duration = ref(0)
 const volume = ref(70)
 
+const BASE = import.meta.env.BASE_URL
+
 const playlist = ref([
-  { name: '打扰了', artist: '蔡明希（不才）', src: '/music/蔡明希（不才） - 打扰了.mp3' },
-  { name: '订书机BPM110', artist: '0629', src: '/music/0629订书机BPM110.m4a' },
+  { name: '打扰了', artist: '蔡明希（不才）', src: `${BASE}music/蔡明希（不才） - 打扰了.mp3` },
+  { name: '订书机BPM110', artist: '0629', src: `${BASE}music/0629订书机BPM110.m4a` },
 ])
 
 const currentSong = computed(() => playlist.value[currentIndex.value] || playlist.value[0])
