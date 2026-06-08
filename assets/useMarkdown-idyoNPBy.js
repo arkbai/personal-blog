@@ -1,4 +1,4 @@
-import{J as e,S as t,X as n,a as r,c as i,k as a,l as o,o as s,r as c,x as l,y as u}from"./runtime-core.esm-bundler-dzcsAqqC.js";var d={class:`max-w-5xl mx-auto px-6 pt-28 pb-16`},f={class:`flex flex-col lg:flex-row gap-6 lg:gap-8`},p={class:`w-full lg:w-56 lg:shrink-0`},m={class:`lg:sticky lg:top-28 space-y-5 bg-white lg:bg-transparent rounded-2xl lg:rounded-none p-4 lg:p-0 shadow-sm lg:shadow-none border border-slate-100 lg:border-none`},ee={class:`relative`},te=[`value`,`placeholder`],ne={class:`space-y-4 max-h-64 lg:max-h-none overflow-y-auto`},re={class:`text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5`},ie={class:`space-y-0.5`},ae=[`onClick`],oe={key:0,class:`text-xs text-slate-400 text-center py-4`},se={key:1,class:`border-t border-slate-100 pt-4`},ce={class:`space-y-0.5`},le=[`href`],ue={key:0,class:`ml-3 space-y-0.5`},de=[`href`],fe={class:`flex-1 min-w-0`},pe={class:`prose-custom`},h={__name:`LayoutWithSidebar`,props:{placeholder:{type:String,default:`搜索笔记...`},tocItems:{type:Array,default:()=>[]},categories:{type:Array,default:()=>[]},searchQuery:{type:String,default:``},activeId:{type:String,default:``}},emits:[`update:searchQuery`,`selectPost`],setup(r,{emit:a}){let h=a;function me(e){h(`update:searchQuery`,e.target.value)}return(a,g)=>(u(),o(`div`,d,[s(`div`,f,[s(`aside`,p,[s(`nav`,m,[s(`div`,ee,[g[0]||=s(`svg`,{class:`absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-300`,fill:`none`,stroke:`currentColor`,viewBox:`0 0 24 24`},[s(`path`,{"stroke-linecap":`round`,"stroke-linejoin":`round`,"stroke-width":`2`,d:`M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z`})],-1),s(`input`,{value:r.searchQuery,type:`text`,placeholder:r.placeholder,class:`w-full pl-8 pr-3 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:border-primary-300 focus:ring-1 focus:ring-primary-100 transition-all text-slate-500 placeholder-slate-300`,onInput:me},null,40,te)]),s(`div`,ne,[(u(!0),o(c,null,l(r.categories,([t,i])=>(u(),o(`div`,{key:t},[s(`h3`,re,n(t),1),s(`ul`,ie,[(u(!0),o(c,null,l(i,t=>(u(),o(`li`,{key:t.id},[s(`button`,{class:e([`text-left w-full text-sm py-1 px-2 rounded-md transition-colors truncate`,r.activeId===t.id?`bg-primary-50 text-primary-500 font-medium`:`text-slate-500 hover:bg-slate-50`]),onClick:e=>h(`selectPost`,t.id)},n(t.title),11,ae)]))),128))])]))),128))]),r.categories.length===0&&r.searchQuery?(u(),o(`p`,oe,` 无匹配笔记 `)):i(``,!0),r.tocItems.length>0?(u(),o(`div`,se,[g[1]||=s(`h3`,{class:`text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2`},`当前目录`,-1),s(`ul`,ce,[(u(!0),o(c,null,l(r.tocItems,e=>(u(),o(`li`,{key:e.id},[s(`a`,{href:`#${e.id}`,class:`block text-sm text-slate-500 hover:text-primary-500 transition-colors py-1 px-2 rounded-md hover:bg-primary-50`},n(e.label),9,le),e.children?(u(),o(`ul`,ue,[(u(!0),o(c,null,l(e.children,e=>(u(),o(`li`,{key:e.id},[s(`a`,{href:`#${e.id}`,class:`block text-xs text-slate-400 hover:text-primary-500 transition-colors py-0.5 px-2 rounded-md hover:bg-primary-50`},n(e.label),9,de)]))),128))])):i(``,!0)]))),128))])])):i(``,!0)])]),s(`article`,fe,[s(`div`,pe,[t(a.$slots,`content`,{},()=>[g[2]||=s(`div`,{class:`bg-white rounded-2xl border border-slate-100 p-8 shadow-sm`},[s(`p`,{class:`text-slate-400 text-center py-12`},`暂无内容`)],-1)])])])])]))}},me=`
+import{J as e,S as t,X as n,a as r,c as i,k as a,l as o,o as s,r as c,x as l,y as u}from"./runtime-core.esm-bundler-dzcsAqqC.js";var d={class:`max-w-5xl mx-auto px-6 pt-28 pb-16`},f={class:`flex flex-col lg:flex-row gap-6 lg:gap-8`},p={class:`w-full lg:w-56 lg:shrink-0`},m={class:`lg:sticky lg:top-28 space-y-5 bg-white lg:bg-transparent rounded-2xl lg:rounded-none p-4 lg:p-0 shadow-sm lg:shadow-none border border-slate-100 lg:border-none`},ee={class:`relative`},te=[`value`,`placeholder`],ne={class:`space-y-4 max-h-64 lg:max-h-none overflow-y-auto`},re={class:`text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5`},ie={class:`space-y-0.5`},ae=[`onClick`],oe={key:0,class:`text-xs text-slate-400 text-center py-4`},se={key:1,class:`border-t border-slate-100 pt-4`},ce={class:`space-y-0.5`},le=[`href`],ue={key:0,class:`ml-3 space-y-0.5`},de=[`href`],fe={class:`flex-1 min-w-0`},pe={class:`prose-custom`},h={__name:`LayoutWithSidebar`,props:{placeholder:{type:String,default:`搜索笔记...`},tocItems:{type:Array,default:()=>[]},categories:{type:Array,default:()=>[]},searchQuery:{type:String,default:``},activeId:{type:String,default:``}},emits:[`update:searchQuery`,`selectPost`],setup(r,{emit:a}){let h=a;function me(e){h(`update:searchQuery`,e.target.value)}return(a,g)=>(u(),o(`div`,d,[s(`div`,f,[s(`aside`,p,[s(`nav`,m,[s(`div`,ee,[g[0]||=s(`svg`,{class:`absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-300`,fill:`none`,stroke:`currentColor`,viewBox:`0 0 24 24`},[s(`path`,{"stroke-linecap":`round`,"stroke-linejoin":`round`,"stroke-width":`2`,d:`M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z`})],-1),s(`input`,{value:r.searchQuery,type:`text`,placeholder:r.placeholder,class:`w-full pl-8 pr-3 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:border-primary-300 focus:ring-1 focus:ring-primary-100 transition-all text-slate-500 placeholder-slate-300`,onInput:me},null,40,te)]),s(`div`,ne,[(u(!0),o(c,null,l(r.categories,([t,i])=>(u(),o(`div`,{key:t},[s(`h3`,re,n(t),1),s(`ul`,ie,[(u(!0),o(c,null,l(i,t=>(u(),o(`li`,{key:t.id},[s(`button`,{class:e([`text-left w-full text-sm py-1 px-2 rounded-md transition-colors truncate`,r.activeId===t.id?`bg-primary-50 text-primary-500 font-medium`:`text-slate-500 hover:bg-slate-50`]),onClick:e=>h(`selectPost`,t.id)},n(t.title),11,ae)]))),128))])]))),128))]),r.categories.length===0&&r.searchQuery?(u(),o(`p`,oe,` 无匹配笔记 `)):i(``,!0),r.tocItems.length>0?(u(),o(`div`,se,[g[1]||=s(`h3`,{class:`text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2`},`当前目录`,-1),s(`ul`,ce,[(u(!0),o(c,null,l(r.tocItems,e=>(u(),o(`li`,{key:e.id},[s(`a`,{href:`#${e.id}`,class:`block text-sm text-slate-500 hover:text-primary-500 transition-all py-1 px-2 rounded-md hover:bg-slate-100 active:bg-slate-200`},n(e.label),9,le),e.children?(u(),o(`ul`,ue,[(u(!0),o(c,null,l(e.children,e=>(u(),o(`li`,{key:e.id},[s(`a`,{href:`#${e.id}`,class:`block text-xs text-slate-400 hover:text-primary-500 transition-all py-0.5 px-2 rounded-md hover:bg-slate-100 active:bg-slate-200`},n(e.label),9,de)]))),128))])):i(``,!0)]))),128))])])):i(``,!0)])]),s(`article`,fe,[s(`div`,pe,[t(a.$slots,`content`,{},()=>[g[2]||=s(`div`,{class:`bg-white rounded-2xl border border-slate-100 p-8 shadow-sm`},[s(`p`,{class:`text-slate-400 text-center py-12`},`暂无内容`)],-1)])])])])]))}},me=`
 ## 一、绪论
 
 ### 1.什么是数据结构
@@ -588,8 +588,8 @@ AOE网：弧表示活动，顶点表示开始或结束事件
 1. 原子类型：最小不可再分的类型，如c语言中的基本类型（整型等）
 2. 结构类型：按某种结构组成，如数组中的分量可以是整型也可以是数组
 3. 抽象数据类型ADT
-（Abstract Data Type）和数据类型是一个概念，“抽象”的意义在于可以自己定义。
-ADT可以用三元组表示（D，S，P）D：数据对象；S：关系集；P：操作集；
+	（Abstract Data Type）和数据类型是一个概念，“抽象”的意义在于可以自己定义。
+	ADT可以用三元组表示（D，S，P）D：数据对象；S：关系集；P：操作集；
 # 二、算法
 >求解问题的步骤
 
@@ -608,7 +608,8 @@ $$O(1) < O(\\log_2 n) < O(n) < O(n \\log_2 n) < O(n^2) < O(n^3) < O(2^n) < O(n!)
 2. 空间复杂度S(n)=O(g(n))
 	- 只关注算法额外使用的辅助空间（<u>递归调用栈、临时数组、指针</u>）【输入数据的空间与算法无关；指令、常数、与n无关的变量所占空间为固定开销】
 	- 原地工作：所需内存空间不变，S(n)=O(1)
-	- 例：test(int n){ int flag\\[n],int i ...}，S(n)=O(4n+4)=O(n)
+	- 例：
+		test(int n){ int flag\\[n],int i ...}，S(n)=O(4n+4)=O(n)
 		{flag\\[n]\\[n]...}，S(n)=O(n<sup>2</sup>)`,he=`# 一、线性表的定义
 ### 定义
 表长为n的有限序列 L = (a<sub>1</sub>,...a<sub>n</sub>) 
@@ -617,14 +618,14 @@ $$O(1) < O(\\log_2 n) < O(n) < O(n \\log_2 n) < O(n^2) < O(n^3) < O(2^n) < O(n!)
 - 每个元素数据类型相同
 - 表头元素、表尾元素、直接前驱、直接后继
 - 基本操作：
-	![Pasted image 20260408122242.png](/personal-blog/images/obsidian/Pasted-image-20260408122242.png)
+	![653](../../A一次元/images/Pasted%20image%2020260408122242.png)
 # 二、线性表的顺序表示
 ## 顺序表
 >用顺序存储（<u>地址连续的存储单元</u>）的方式实现线性表，逻辑上相邻，物理上也相邻；c语言中，顺序表的物理结构用**数组**实现
-- 随机访问：按序号查找O(1)，按值顺序查找O(n)，使用折半查找只需O(log<sub>2
+- 随机访问：按序号查找O(1)，按值顺序查找O(n)，折半查找O(log<sub>2
 	</sub>n)
 - 拓展表长度&插入元素&删除元素：O(n)
-- 存储密度高（相对于链表不用存指针）
+- 优点：存储密度高（相对于链表不用存指针）
 ### 1. 静态分配
 \`\`\`c
 #define MaxSize 10
@@ -671,15 +672,15 @@ void IncreaseSize(SeqList &L,int len){
 
 
 # 三、线性表的链式表示
->随机存储（<u>使用离散的存储单元</u>）实现线性表，不能随机存取，只能顺序访问
-## 1、单链表
-- 结点：数据+指针 \\*next
+>用随机存储（<u>使用离散的存储单元</u>）实现线性表，不能随机存取，只能顺序访问
+## 单链表
+- 结点：数据 | 指针
 - 头结点：不存放数据
 - 头指针L：用于标识一个单链表，始终指向第一个结点（不管头结点是否存在）
 - 求表长 & 按序号查找 & 按值查找：遍历链表，O(n)
 ### 1. 单链表的初始化
 带头结点 / 不带头结点
-![Pasted image 20260409115613.png](/personal-blog/images/obsidian/Pasted-image-20260409115613.png)
+![](../../A一次元/images/Pasted%20image%2020260409115613.png)
 - 定义链表时
 	- struct LNode{...}：将LNode定义为一个结构体
 	- typedef struct{...}LNode：将结构体简写为LNode
@@ -714,11 +715,11 @@ return true;
 \`\`\`
 - **头插法**：从头指针开始查找x的前驱结点
 >扩展：在未知头指针的情况下，对某个结点进行前插操作
->![Pasted image 20260409113928.png](/personal-blog/images/obsidian/Pasted-image-20260409113928.png)
->![Pasted image 20260409114131.png](/personal-blog/images/obsidian/Pasted-image-20260409114131.png)
+>![360](../../A一次元/images/Pasted%20image%2020260409113928.png)
+>![255](../../A一次元/images/Pasted%20image%2020260409114131.png)
 >复制数据到新结点中，将旧结点x作为前驱结点，指向新结点，从而实现了x的前插操作，且时间复杂度从O(n)降到O(1)
 
-### 4. 删除结点
+### 3. 删除结点
 - q结点是一个临时结点，最后断开q时需要free(q)释放存储空间
 \`\`\`c
 //删除指定结点p
@@ -732,7 +733,7 @@ bool DeleteNode (LNode *p){
 	return true;
 }
 \`\`\`
-### 5. 尾插法建立新链表
+### 4. 尾插法建立新链表
 在表尾结点后加入元素，O(n) 
 \`\`\`c
 LinkList List_TailInsert(LinkList &L){ //正向建立单链表
@@ -751,7 +752,7 @@ LinkList List_TailInsert(LinkList &L){ //正向建立单链表
 return L;
 }
 \`\`\`
-### 6. 头插法建立新链表
+### 5. 头插法建立新链表
 每次都在头结点后插入元素，O(n)
 \`\`\`c
 // 与尾插法大部分一致
@@ -767,7 +768,7 @@ return L;
 \`\`\`
 	
 - **链表的逆置**：可以用头插法从链表中依次读取数据并建立新链表
-## 2、双链表
+## 双链表
 - 头指针prior，尾指针next：方便从后往前遍历，遍历时间复杂度 O(n)
  1. 双链表的初始化
 \`\`\`c
@@ -793,7 +794,7 @@ bool InsertNextDNode(DNode *p，DNode *s){
 	return true;
 }
 \`\`\`
-![Pasted image 20260410232256.png](/personal-blog/images/obsidian/Pasted-image-20260410232256.png)
+![245](../../A一次元/images/Pasted%20image%2020260410232256.png)
  3. 双链表的删除
 - 注意q结点为最后一个结点时，判断q->next!=NULL
 \`\`\`c
@@ -811,11 +812,11 @@ bool DeleteNextDNode(DNode *p){
 }
 \`\`\`
 - 一般情况 / 最末结点的情况
-![Pasted image 20260410232827.png](/personal-blog/images/obsidian/Pasted-image-20260410232827.png)
+![243](../../A一次元/images/Pasted%20image%2020260410232827.png)
 
-## 3、循环链表
+## 循环链表
 ### 循环单链表
-![Pasted image 20260410233507.png](/personal-blog/images/obsidian/Pasted-image-20260410233507.png)
+![](../../A一次元/images/Pasted%20image%2020260410233507.png)
 
 ###  循环双链表
 1. 初始化：初始空表，prior和next都指向头结点L【非循环双链表 初始指向NULL】
@@ -879,7 +880,9 @@ bool InsertNextDNode(DNode *p，DNode *s){
 - 创建、销毁、增、删、改、查 都是O(1)（无需遍历表）
 
 > 题型：判断栈可能的输出序列
-> ![4edf3896e931267773b52d1f423b859e.png](/personal-blog/images/obsidian/4edf3896e931267773b52d1f423b859e.png)
+> 卡特兰数：
+> ![209](../../A一次元/images/4edf3896e931267773b52d1f423b859e.png)
+> [【新定义数列】卡特兰数，最全最系统讲解，高考曾经考过！3种压轴情景，概率题压轴_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1ofLyzyEXp/?spm_id_from=333.337.search-card.all.click&vd_source=a71201b56b8104dbc40a094df804a731)
 ### 栈的顺序存储结构
 1. 定义
 \`\`\`c
@@ -923,16 +926,18 @@ bool Pop(SqStack &S, ElemType&x){
 	x = S.data[S.top];
 \`\`\`
 >简写：（注意top加减的前后顺序）
->![Pasted image 20260413220414.png](/personal-blog/images/obsidian/Pasted-image-20260413220414.png)
+>![500](../../A一次元/images/Pasted%20image%2020260413220414.png)
 
 ### 栈的链式存储结构
 - 与**单链表**类似，但是每次不移动指针，只对首个结点进行插入/删除
 - 一般不带头结点，Lhead指向栈顶结点（有元素）
 ### 共享栈
-两个栈共享同一片数组空间
-初始栈空：top0=-1，top1=maxsize
-栈满的条件：top0+1 == top1
-![Pasted image 20260413220832.png](/personal-blog/images/obsidian/Pasted-image-20260413220832.png)
+> 两个栈共享同一片数组空间
+> 可以防止上溢
+
+- 初始-栈空：top0=-1，top1=maxsize
+- 栈满：top0+1 == top1
+![163](../../A一次元/images/Pasted%20image%2020260413220832.png)
 # 二、队列
 ### 队列的定义和基本操作
 只允许在一段进行插入，另一端进行删除的线性表，先进先出 FIFO
@@ -994,7 +999,7 @@ boolDeQueue(SqQueue &Q,ElemType &x){
 > 1. 少用一个单元（rear标识的位置不存储数据）
 > 队满：(Q.rear+1)%MaxSize\\==Q.front
 > 队空：Q.front\\==Q.rear
-> ![Pasted image 20260415230455.png](/personal-blog/images/obsidian/Pasted-image-20260415230455.png)
+> ![460](../../A一次元/images/Pasted%20image%2020260415230455.png)
 > 2. 增加一个size变量，每次入队出队变化
 > 队满：Q.size\\==MaxSize
 > 队空：Q.size\\==0
@@ -1083,25 +1088,25 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 - 考点：不同双端队列，可能出现的输出序列
 
 # 三、栈和队列的应用
-### 栈的应用
+## 栈的应用
 1. **括号匹配问题**： 扫描表达式，扫描到左括号入栈，扫描到右括号就出栈
 	匹配失败的情况：
 	- 扫描到的 右括号 与 栈顶左括号 不匹配
 	- 扫描完毕仍有左/右括号单独存在
 2. **算术表达式求值**： 三种表达式：中缀 / 前缀 / 后缀（主要）
 	1. 后缀表达式的计算：
-		![Pasted image 20260416105612.png](/personal-blog/images/obsidian/Pasted-image-20260416105612.png)
+		![600](../../A一次元/images/Pasted%20image%2020260416105612.png)
 	2. 中缀表达式转后缀表达式：
-		![Pasted image 20260416105948.png](/personal-blog/images/obsidian/Pasted-image-20260416105948.png)
+		![580](../../A一次元/images/Pasted%20image%2020260416105948.png)
 	3. 中缀表达式的计算（先转后缀，再计算后缀）
-		 ![Pasted image 20260416110652.png](/personal-blog/images/obsidian/Pasted-image-20260416110652.png)
+		 ![530](../../A一次元/images/Pasted%20image%2020260416110652.png)
 3. **递归**：函数调用栈
 	- 函数调用是LIFO，与栈相同
 	- 递归必须定义：1. 递归体 2. 边界条件（递归出口）
 	- 递归深度过大时，容易出现栈溢出
 	- 例子：求阶乘；求斐波那契数列
 
-### 队列的应用
+## 队列的应用
 1. 树的层次遍历
 2. 图的广度优先遍历
 3. 计算机系统中的应用：
@@ -1111,28 +1116,30 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 
 # 四、数组和特殊矩阵
 ### 数组的存储结构
-一维数组：直接映射一段连续的存储空间
-二维数组：根据按行/列优先的原则，连续存储数组元素
+- 一维数组：直接映射一段连续的存储空间
+- 二维数组：根据按行/列优先的原则，连续存储数组元素
+
 >M行N列的二维数组b\\[M]\\[N]中，若按列优先存储，则
 >b\\[i]\\[j]的存储地址=LOC+(j\\*M+i) \\* sizeof(ElemType)
-![Pasted image 20260418102303.png](/personal-blog/images/obsidian/Pasted-image-20260418102303.png)
+![500](../../A一次元/images/Pasted%20image%2020260418102303.png)
 ### 矩阵的存储
-> 注意区分数组是按行 / 按列
-> 数组从0开始，矩阵从a<sub>1,1</sub>开始
+> 注意区分：二维数组是按行/按列优先存储一维数据，矩阵是数学上的二维数据
+> 数组从a\\[0]\\[0]开始，矩阵从a<sub>1,1</sub>开始
 
 - 对称矩阵：只存储主对角线+上/下三角
-	![Pasted image 20260418103401.png](/personal-blog/images/obsidian/Pasted-image-20260418103401.png)
+	![320](../../A一次元/images/Pasted%20image%2020260418103401.png)
 - 三角矩阵：只存储上/下三角【数组中增加一个常数项】
-	![Pasted image 20260418103433.png](/personal-blog/images/obsidian/Pasted-image-20260418103433.png)
+	![301](../../A一次元/images/Pasted%20image%2020260418103433.png)
 - 三对角矩阵（带状矩阵）
-	![Pasted image 20260418102742.png](/personal-blog/images/obsidian/Pasted-image-20260418102742.png)
-	![Pasted image 20260418103613.png](/personal-blog/images/obsidian/Pasted-image-20260418103613.png)
+	![180](../../A一次元/images/Pasted%20image%2020260418102742.png)
+	![308](../../A一次元/images/Pasted%20image%2020260418103613.png)
 
 - 稀疏矩阵：非零元素很少
 	1. 三元组
-		![Pasted image 20260418103004.png](/personal-blog/images/obsidian/Pasted-image-20260418103004.png)
+		![163](../../A一次元/images/Pasted%20image%2020260418103004.png)
 	2. **十字链表法**：行 | 列 | 值；<font color="#974806">同列下个元素</font>，<font color="#9bbb59">同行下个元素</font>
-		![Pasted image 20260418103046.png](/personal-blog/images/obsidian/Pasted-image-20260418103046.png)`,_e=`# 一、串的定义*
+		![320](../../A一次元/images/Pasted%20image%2020260418103046.png)
+> 稀疏矩阵压缩后会失去随机存取功能`,_e=`# 一、串的定义*
 >这小节不在考纲范围
 
 字符组成的有限序列
@@ -1158,7 +1165,7 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 > - O(m+n) = 求next数组O(m)+模式匹配最坏时间O(n)
 
 
-![Pasted image 20260418110559.png](/personal-blog/images/obsidian/Pasted-image-20260418110559.png)
+![710](../../A一次元/images/Pasted%20image%2020260418110559.png)
 ### 1、KMP算法的原理
 > - 前缀：除了末尾字符外的子串
 > - 后缀：除了首个字符外的子串
@@ -1177,7 +1184,7 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 - 固定：<u>next\\[0]不存储，next\\[1]=0，next\\[2]=1</u>
 - 计算方法：（手算）
 	匹配失败时，若j=5，可知主串中已经有子串‘abab’，则可以令j=3，从第二个‘ab’继续进行匹配运算；同理观察出匹配失败时的不同情况，得出next表
-	![Pasted image 20260418120907.png](/personal-blog/images/obsidian/Pasted-image-20260418120907.png)
+	![259](../../A一次元/images/Pasted%20image%2020260418120907.png)
 - 含义：
 	在匹配失败时，主串指针i不变，模式串指针j变为失配项的next值
 
@@ -1188,14 +1195,14 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 
 ### 3、KMP的进一步优化
 优化next数组->nextval数组，其他算法不变
-![Pasted image 20260423113758.png](/personal-blog/images/obsidian/Pasted-image-20260423113758.png)
-![Pasted image 20260423113818.png](/personal-blog/images/obsidian/Pasted-image-20260423113818.png)
+![297](../../A一次元/images/Pasted%20image%2020260423113758.png)
+![297](../../A一次元/images/Pasted%20image%2020260423113818.png)
 - nextval\\[1]=0，nextval\\[2]=1
 - j=3时失配，因为j=1 **【由next\\[3]=1得到】** 都是’a‘，令nextval\\[3] = nextval \\[next\\[3]]=0，
 - j=4时失配，因为j=2也是‘b’，令nextval\\[4] = nextval \\[next\\[4]]=1
 - j=5时失配，因为j=3也是'a'，令nextval\\[5] = nextval \\[next\\[5]]=0 
 - j=6时失配，由于j=6与j=4不相等，所以不变
-> 逻辑推理过程（参考）：主串’abax‘，模式串’abab‘，且x不等于b，没必要令j=2的’b‘与x比较，但是x有可能等于’a‘，所以将j修改成1，nextval=1
+>逻辑推理过程（参考）：主串’abax‘，模式串’abab‘，且x不等于b，没必要令j=2的’b‘与x比较，但是x有可能等于’a‘，所以将j修改成1，nextval=1
 
 
 
@@ -1215,7 +1222,7 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 1. 树的结点数 = 所有结点的度数和 +1
 2. 度为m的树：至少有m+1个结点
 3. m叉树：最多有m个结点【分支可以是空树】
-	![Pasted image 20260423220106.png](/personal-blog/images/obsidian/Pasted-image-20260423220106.png)
+	![310](../../A一次元/images/Pasted%20image%2020260423220106.png)
 4. 度为m的树，第i层最多有m<sup>i-1</sup>个结点
 5. 高度为h的m叉树，总共最多有(m<sup>h</sup>-1)/(m-1)个结点【1+m+m<sup>2</sup>+...】；最少有h个结点
 6. 高度为h的，度为m的树，至少有h+m-1个结点 
@@ -1223,28 +1230,38 @@ bool DeQueue(LinkQueue &Q,ElemType &x){
 # 二、二叉树
 > 二叉树是有序树，有左子树和右子树
 
-**二叉树的类型**
-1. 满二叉树：结点为2<sup>h</sup>-1
-	- 结点i的左孩子为2i，右孩子为2i+1
-2. 完全二叉树： 
-	
-	![Pasted image 20260423221358.png](/personal-blog/images/obsidian/Pasted-image-20260423221358.png)
-3. 二叉排序树：左<右
-4. 平衡二叉树：左右子树的深度差最多为1
+- **二叉树的类型**
+	1. 满二叉树：结点为2<sup>h</sup>-1
+		- 结点i的左孩子为2i，右孩子为2i+1
+	2. 完全二叉树： 
+		![202](../../A一次元/images/Pasted%20image%2020260423221358.png)
+	3. 二叉排序树：左<右，O(n)
+	4. 平衡二叉树：左右子树的深度差最多为1
 
-**二叉树的性质**
-1. 非空，设度为0，1，2的结点个数为n<sub>0</sub>，n<sub>1</sub>，n<sub>2</sub>，则n<sub>0</sub>=n<sub>2</sub>+1
-2. 高度为h，第i层至多有2<sup>i-1</sup>个结点；总共最多有2<sup>h</sup>-1个结点
-3. 完全二叉树：
-	- 只有最底2层有叶子结点
-	- 最多只有一个度为1的结点
-	- i<=\\[n/2]为分支节点，i>\\[n/2]为叶子节点（取整）
-	- n个结点，h=\\[log<sub>2</sub>(n+1)] 或 \\[log<sub>2</sub>n]+1【满时 / 最底层只有1个结点时】
-	- 已知n个结点可以推导出n<sub>0</sub>，n<sub>1</sub>，n<sub>2</sub>
+- **二叉树的性质**
+	1. 设度为0，1，2的结点个数为n<sub>0</sub>，n<sub>1</sub>，n<sub>2</sub>，则n<sub>0</sub>=n<sub>2</sub>+1
+	2. 高度为h，第i层至多有2<sup>i-1</sup>个结点；总共最多有2<sup>h</sup>-1个结点
 
-**二叉树的存储**
-- 顺序：完全/满二叉树可以直接用数组存储，非完全二叉树中会有大量空结点
-- 链式：左右孩子指针（可定义父指针方便查找）
+- **二叉树的存储**
+	- 顺序：完全/满二叉树可以直接用数组存储，非完全二叉树中会有大量空结点
+	- 链式：左右孩子指针（可定义父指针方便查找）
+
+## 完全二叉树的性质：
+- 只有最底2层有叶子结点
+- 最多只有一个度为1的结点
+- n个结点，h=\\[log<sub>2</sub>(n+1)] 【向上取整】或 \\[log<sub>2</sub>n]+1【向下取整】
+- 已知n个结点可以推导出n<sub>0</sub>，n<sub>1</sub>，n<sub>2</sub>
+> 几个重要常考的基本操作：
+> - i的左孩子——2i
+> - i的右孩子——2i+1
+> - i的父节点——\\[i/2]
+> 
+> 若完全二叉树中共有n个结点，则
+> - 判断i是否有左孩子？——2i≤n？
+> - 判断i是否有右孩子?——2i+1≤n?
+> - 判断i是否是叶子/分支结点？——i>\\[n/2]？ 
+> 	- i<=\\[n/2]为分支结点，i>\\[n/2]为叶子结点
+
 ## 二叉树的遍历
 1. 前序
 2. 后序
@@ -1261,26 +1278,26 @@ void InOrder(BitTree T){
 \`\`\`
 4. 层次遍历：从左到右遍历同一层的结点
 	- 设置队列，每次访问结点，都令其左右孩子入队，最后遍历队列
-	![Pasted image 20260423224340.png](/personal-blog/images/obsidian/Pasted-image-20260423224340.png)
+	![390](../../A一次元/images/Pasted%20image%2020260423224340.png)
 
 **由遍历序列反向构造二叉树**
 【必须需要有中序序列】
-![Pasted image 20260423224741.png](/personal-blog/images/obsidian/Pasted-image-20260423224741.png)
+![640](../../A一次元/images/Pasted%20image%2020260423224741.png)
 
 ## 线索二叉树
 > 一般二叉树没有前驱，遍历时只能从根节点开始，不方便
 > 线索二叉树：按特定规则将二叉树中所有结点排列成一个线性序列
 
 ### 中序线索二叉树
-![9c4822e034026ba5730552cb093b6d4d.png](/personal-blog/images/obsidian/9c4822e034026ba5730552cb093b6d4d.png)
+![670](../../A一次元/images/9c4822e034026ba5730552cb093b6d4d.png)
 - 存储结构：线索链表
-	![Pasted image 20260423225836.png](/personal-blog/images/obsidian/Pasted-image-20260423225836.png)
+	![320](../../A一次元/images/Pasted%20image%2020260423225836.png)
 - 前序与后续线索二叉树
-	![Pasted image 20260423230201.png](/personal-blog/images/obsidian/Pasted-image-20260423230201.png)
+	![280](../../A一次元/images/Pasted%20image%2020260423230201.png)
 
 ### 二叉树的线索化
 - 中序线索化：进行中序遍历的同时，进行线索化
-![Pasted image 20260424101346.png](/personal-blog/images/obsidian/Pasted-image-20260424101346.png)
+![720](../../A一次元/images/Pasted%20image%2020260424101346.png)
 \`\`\`c
 //中序线索化二叉树T 主过程
 void CreateInThread(ThreadTree T){
@@ -1295,7 +1312,7 @@ void CreateInThread(ThreadTree T){
 
 - 先序/后序线索化：和中序类似，通过遍历的过程进行线索化
 ### 线索二叉树的遍历
-![Pasted image 20260424105507.png](/personal-blog/images/obsidian/Pasted-image-20260424105507.png)
+![442](../../A一次元/images/Pasted%20image%2020260424105507.png)
 - 先序/后序--在结点中加入前驱指针，或者从根结点遍历
 - 中序：
 \`\`\`c
@@ -1337,21 +1354,21 @@ voidInorder(ThreadNode *T){
 	- 顺序+链式
 	- 每个结点用链表记录 孩子节点的位置 与 指向下一个孩子结点的指针
 	- 查找该结点的孩子结点方便
-	![Pasted image 20260424110452.png](/personal-blog/images/obsidian/Pasted-image-20260424110452.png)
+	![240](../../A一次元/images/Pasted%20image%2020260424110452.png)
 3. 孩子兄弟表示法
 	- 左孩子+右兄弟
 	- 相当于把树->二叉树
-		![Pasted image 20260424111034.png](/personal-blog/images/obsidian/Pasted-image-20260424111034.png)
+		![340](../../A一次元/images/Pasted%20image%2020260424111034.png)
 
 ### 树、二叉树、森林的转换
 1. 树->二叉树：孩子兄弟表示法⬆
-	![Pasted image 20260424111626.png](/personal-blog/images/obsidian/Pasted-image-20260424111626.png)
+	![480](../../A一次元/images/Pasted%20image%2020260424111626.png)
 2. 森林->二叉树：与树相似，把各树的根结点视为兄弟结点
 3. 二叉树->树/森林：逆推导，结果唯一
 
 ### 树和森林的遍历
 <u>对应关系：可以将树和森林转化为二叉树来遍历</u>
-![Pasted image 20260424112902.png](/personal-blog/images/obsidian/Pasted-image-20260424112902.png)
+![440](../../A一次元/images/Pasted%20image%2020260424112902.png)
 - 树的遍历：与二叉树类似
 	- 先根，后根，层次遍历
 - 森林的遍历
@@ -1367,12 +1384,12 @@ voidInorder(ThreadNode *T){
 > 最优二叉树，WPL最小的二叉树
 
 **哈夫曼树的构造与性质**
-![132f953dfe54eaf9d7b3bb05eb2e56ab.png](/personal-blog/images/obsidian/132f953dfe54eaf9d7b3bb05eb2e56ab.png)
+![](../../A一次元/images/132f953dfe54eaf9d7b3bb05eb2e56ab.png)
 
 **哈夫曼编码**
 - 前缀编码（编码互相不为前缀，防止译码错误）
 - 数据的压缩：由于C的频次高，可以使其编码变短来缩短平均编码长度
-![Pasted image 20260425102136.png](/personal-blog/images/obsidian/Pasted-image-20260425102136.png)——>![Pasted image 20260425110250.png](/personal-blog/images/obsidian/Pasted-image-20260425110250.png)
+![273](../../A一次元/images/Pasted%20image%2020260425102136.png)——>![139](../../A一次元/images/Pasted%20image%2020260425110250.png)
 A：00；B：01；C：10；D：11 ——>A：10；B：111；C：0；D：110
 
 
@@ -1413,7 +1430,7 @@ int Find(int S[],int x)(
 }
 \`\`\`
 
-![Pasted image 20260425105335.png](/personal-blog/images/obsidian/Pasted-image-20260425105335.png)`,ye=`# 一、图的基本概念
+![660](../../A一次元/images/Pasted%20image%2020260425105335.png)`,ye=`# 一、图的基本概念
 G=（V，E）其中V表示顶点集，E表示边集
 > - |V|表示图G中顶点个数，|E|表示边的个数
 > - 顶点集V是非空集，边集可以是空集
@@ -1423,11 +1440,10 @@ G=（V，E）其中V表示顶点集，E表示边集
 
 1. 无向图
 	- 顶点的度：顶点连接的边数；<u>所有顶点度的和 = 边数x2</u>
-	- 连通：两个点之间有路径
 	- 连通图：任意两个结点都是连通的
 	- 连通分量：无向图的**极大连通子图**【无向图中可能有多个不连通的连通分量】
 2. 有向图：有向边称为弧，E={<A,B>}
-	- 入度ID(v)之和 = 出度OD(v)之和 = 边数
+	- 入度之和 = 出度之和 = 边数（=ID(v)=OD(v)）
 	- 强连通：两个点之间来回都有路径
 	- 强连通图；强连通分量
 3. 生成子图：包含所有顶点，但是删去部分边的子图
@@ -1441,26 +1457,26 @@ G=（V，E）其中V表示顶点集，E表示边集
 
 # 二、图的存储及基本操作
 > 主要为**邻接矩阵**与**邻接表**，十字链表与多重表理解原理
-![Pasted image 20260428113601.png](/personal-blog/images/obsidian/Pasted-image-20260428113601.png)
+![650](../../A一次元/images/Pasted%20image%2020260428113601.png)
 ### 邻接矩阵
 无向图/有向图的区别：是否对称【无向图的邻接矩阵为对称矩阵，可以压缩】
-![9a96d1208e9809fc0ab85cc7b6ff3c3b.png](/personal-blog/images/obsidian/9a96d1208e9809fc0ab85cc7b6ff3c3b.png)    ![Pasted image 20260428105059.png](/personal-blog/images/obsidian/Pasted-image-20260428105059.png)
+![148](../../A一次元/images/9a96d1208e9809fc0ab85cc7b6ff3c3b.png)    ![149](../../A一次元/images/Pasted%20image%2020260428105059.png)
 - 带权值的邻接矩阵：把1替换为路径长度，0换成无穷大
 - <u>邻接矩阵的n次</u>：A<sup>n</sup>的\\[i]\\[j]位置上的元素表示顶点i到顶点j的长度为n的路径个数
-![Pasted image 20260428105807.png](/personal-blog/images/obsidian/Pasted-image-20260428105807.png)![Pasted image 20260428105734.png](/personal-blog/images/obsidian/Pasted-image-20260428105734.png)
+![103](../../A一次元/images/Pasted%20image%2020260428105807.png)![600](../../A一次元/images/Pasted%20image%2020260428105734.png)
 ### 邻接表
 > 顺序+链式
 > **邻接表不唯一**，即结点顺序可能不同，如A-B-C也可作A-C-B
 > 无向图：2|E|个结点（每条边有重复记录）有向图：|E|个结点
 
-![Pasted image 20260428110416.png](/personal-blog/images/obsidian/Pasted-image-20260428110416.png)
+![271](../../A一次元/images/Pasted%20image%2020260428110416.png)
 ### 十字链表-有向
 横向表示出度，纵向表示入度
-![Pasted image 20260428112225.png](/personal-blog/images/obsidian/Pasted-image-20260428112225.png)
+![590](../../A一次元/images/Pasted%20image%2020260428112225.png)
 ### 邻接多重表-无向
 横向表示与A相连的所有顶点
 纵向表示与B相连的所有顶点
-![9d9f81f7a6dd810e2feed28bcc7f7ce7.png](/personal-blog/images/obsidian/9d9f81f7a6dd810e2feed28bcc7f7ce7.png)
+![510](../../A一次元/images/9d9f81f7a6dd810e2feed28bcc7f7ce7.png)
 
 # 三、图的遍历
 ### 广度优先遍历BFS
@@ -1532,18 +1548,20 @@ void DFS(Graph G,int v){
 
 # 四、图的应用
 ## 最小生成树
-> 无向连通图转化为生成树时，边的权值之和最小的生成树，非连通图只能转化成生成森林
+> MST：无向连通图转化为生成树时，边的权值之和最小的生成树，非连通图只能转化成生成森林
+> - 若有权值相等边，最小生成树可能不唯一，但是总权值相等
 
 生成树的创建--了解原理⬇
-1. **prim算法**
-> 从某一个顶点开始构建生成树，每次将代价最小的新顶点纳入生成树，直到所有顶点都纳入为止
+1. **prim算法**-边稠密图
+	从某一个顶点开始构建生成树，每次将代价最小的新顶点纳入生成树，直到所有顶点都纳入为止
 
-2. **Kruskal算法**
-> 每次选择一条权值最短的边，如果两个顶点原本不连通，使其连通，直到所有顶点都连通为止
-
-### 最短路径问题-BFS
+2. **Kruskal算法**-边稀疏但顶点多图
+	每次选择一条权值最短的边，如果两个顶点原本不连通，使其连通，直到所有顶点都连通为止
+## 最短路径问题
+![570](../../A一次元/images/Pasted%20image%2020260507164146.png)
+### BFS
 > 只适用于无权图，时间复杂度O(|V|<sup>2</sup>)
-![Pasted image 20260507131249.png](/personal-blog/images/obsidian/Pasted-image-20260507131249.png)
+![](../../A一次元/images/Pasted%20image%2020260507131249.png)
 \`\`\`c
 //求顶点u到其他顶点的最短路径
 void BFS_MIN_Distance(Graph G,int u){
@@ -1567,37 +1585,611 @@ void BFS_MIN_Distance(Graph G,int u){
 		}
 }
 \`\`\`
-### 最短路径问题-Dijkstra
+### Dijkstra
 > 带权图/无权图，时间复杂度O(|V|<sup>2</sup>)
+> 带权的广度优先遍历
+> 每次遍历处理final\\[i]=false且dist最短的结点，将final\\[i]=ture且更新dist值，
+> -  [迪杰斯特拉 dijkstra算法](https://www.bilibili.com/video/BV1QESyYGE55/?share_source=copy_web&vd_source=47bc448facac6ed847a6836372d368c3)
 
-![Pasted image 20260507135844.png](/personal-blog/images/obsidian/Pasted-image-20260507135844.png)
-[最短路径 迪杰斯特拉 dijkstra算法 数据结构与算法](https://www.bilibili.com/video/BV1QESyYGE55/?share_source=copy_web&vd_source=47bc448facac6ed847a6836372d368c3)
-- 负权值带权图：dijstra会失效
-### 各顶点的最短路径-Floyd
-## 拓扑排序
+![290](../../A一次元/images/Pasted%20image%2020260507135844.png)
 
+### Floyd
+> 动态规划，时间复杂度O(n<sup>3</sup>)，空间复杂度O(n<sup>2</sup>)
+> 遍历每一对顶点，迭代生成A<sup>(-1)</sup>~A<sup>(n)</sup>判断加入中间结点会不会缩短路径
+>-  [弗洛伊德 Floyd算法]( https://www.bilibili.com/video/BV1iiksYCEgf/?share_source=copy_web&vd_source=47bc448facac6ed847a6836372d368c3)
+
+![149](../../A一次元/images/Pasted%20image%2020260507163844.png)
+![330](../../A一次元/images/Pasted%20image%2020260507161122.png)
+\`\`\`c
+//.....准备工作，根据图的信息初始化矩阵A和中转矩阵path⬆
+for (int k=0; k<n; k++){         //考虑以VK作为中转点
+	for(inti=0；i<n；i++){       //遍历整个矩阵，i为行号，j为列号
+		for (int j=0; j<n; j++){
+			if (A[i][j]>A[i][k]+A[k][j]){ //以Vk为中转点的路径更短
+				A[i][j]=A[i][k]+A[k][j];  //更新最短路径长度
+				path[illj]=k;             //中转点
+			}              
+.....
+\`\`\`
+
+
+## 有向无环图DAG
+节省空间
+![310](../../A一次元/images/Pasted%20image%2020260507165601.png)
+
+## 拓扑排序 
+> 有向无环图的顶点构成的序列，表示工程中每个活动的顺序
+> 拓扑排序 /逆拓扑 序列不唯一
+> 若有环则不存在拓扑排序
+
+- AOV网：用**有向无环图**表示工程，顶点表示活动，有向边表示活动的先后
+	![270](../../A一次元/images/Pasted%20image%2020260508102026.png)
+- 拓扑排序的实现：
+	1.  从AOV网中选择一个没有前驱（入度为O）的顶点并输出。
+	2. 从网中删除该顶点和所有以它为起点的有向边。
+	3. 重复①和②直到当前的AOV网为空或当前网中不存在无前驱的顶点为止。
+\`\`\`c
+// 基于邻接表的拓扑排序（优先删除入度为0的点）
+bool TopologicalSort(Graph G){
+	InitStack(S);        //初始化栈，存储入度为0的顶点
+	for(int i=0;i<G.vexnum;i++)
+		if(indegree[i]==0)
+			Push(S,i);   //将所有入度为0的顶点进栈
+	int count=0;         //计数，记录当前已经输出的顶点数
+	while(!IsEmpty(S)){  //栈不空，则存在入度为0的顶点
+		Pop(S,i);        //栈顶元素出栈
+		print[count++]=i;//输出顶点i
+		for(p=G.vertices[i].firstarc;p:p=p->nextarc){
+			//将所有i指向的顶点的入度减1，并且将入度减为0的顶点压入栈s
+			V=p->adjvex;
+			if(!(--indegree[vl))
+				Push(S,V);//入度为0，则入栈
+		}
+	}
+	if(count<G.vexnum) 
+		return false;     //排序失败，有向图中有回路
+	else 
+		return  true;     //拓扑排序成功
+\`\`\`
+- DFS实现**逆拓扑排序**（优先删除出度为0的点）
+	深度优先遍历，依次入栈，优先输出最深的结点
 ## 关键路径
-`,be=`## 基本概念
+- AOE网：用有向边表示活动，顶点表示事件
+	![260](../../A一次元/images/Pasted%20image%2020260508102056.png)
+- 关键路径：具有最大路径长度的路径，关键路径上的活动称为关键活动【工程至少需要的时间】【活动可并行发生】
+	1. 事件的最早发生时间
+	2. 事件的最晚发生时间
+	3. 活动的最早开始时间
+	4. 活动的最晚开始时间
+	5. 活动的时间余量 = 最晚 - 最早；活动a可以拖延的时间`,be=`## 基本概念
+- 查找表：静态查找表/动态查找表--是否修改数据
+- 关键字：唯一标识元素的值
+- 查找长度：对关键字的比较次数
+- 平均查找长度ASL【ASL的数量级反映了时间复杂度】
 
-# 一、顺序查找与折半查找
+# 一、顺序查找与二分查找
+### 顺序查找
+- O(n)
+- ASL=(n+1)/2
+- 有序表的顺序查找【查找判定树⬇】		![|420](A一次元/images/Pasted%20image%2020260509112608.png)
+### 二分查找
+- （有序表）
+- 时间复杂度O(log<sub>2</sub>n)
+\`\`\`c
+//折半查找
+int Binary_Search(SSTable L,ElemType key){
+	int low=0,high=L.TableLen-1,mid;
+	while(low<=high){
+		mid=(low+high)/2;    	//取中间位置
+		if(L.elem[mid]==key)
+			return mid;
+		//查找成功则返回所在位置
+		else if(L.elem[mid]>key)
+			high=mid-1;       	//从前半部分继续查找
+		else
+			low=mid+1;			//从后半部分继续查找
+		}
+		return -1;				//查找失败，返回-1
+\`\`\`
+- 二分查找判定树
+	- 一定是平衡二叉树，右子树-左子树=0或1
+	- h=\\[log<sub>2</sub>(n+1)]
+	![|490](A一次元/images/Pasted%20image%2020260514133529.png)
+### 分块查找 
+- （ *选择题* ）
+- 1.索引查找 2.块内查找
+- 索引区间有序，块内可以无序
+- 如果在块内找不到则查找失败
+![|460](A一次元/images/Pasted%20image%2020260514134421.png)
+- 均匀分块时（顺序索引）的ASL = (b块+1)/2 + (s个+1)/2
+- 块大小最优值：s=√n时，ASL最小，为√n +1
+# 二、树形查找
+> 树形数据的查询复杂度往往与**高度**有关
+> 自平衡树（self-balance）可以自动调整结构：AVL，红黑树，B树
+### 二叉排序树BST
+1. 定义：有序，左<根<右
+2. 插入：直接按大小插入在叶子结点
+3. 建立：依次插入，根据序列顺序不同，排序树不同
+4. 删除：1.叶结点-直接删除  2.有左或右子树-直接上移  3.同时有左子树和右子树：<u>找到直接后继/前驱替换根节点</u>（中序遍历的上一个/下一个，保持有序）
+	![|191](A一次元/images/Pasted%20image%2020260516205829.png)
+5. ASL=log<sub>2</sub>n；最坏情况（只有左子树或右子树）ASL=(n+1)/2 *顺序*
+### 平衡二叉树AVL
+1. 定义：高度差（平衡因子）=左子树高度-右子树高度<=1
+2. 插入：维持平衡
+	- 最小不平衡树：
+		 ![|270](A一次元/images/Pasted%20image%2020260514150938.png)
+	- 调整最小不平衡子树【插入操作导致该子树h+=1，调整后整体恢复平衡】
+		![|360](A一次元/images/Pasted%20image%2020260514150758.png)
+		![|620](A一次元/images/Pasted%20image%2020260514151332.png)
+		![|600](A一次元/images/Pasted%20image%2020260514151651.png)
+3. 删除：与插入相同，调整最小不平衡子树
+4. 最大深度h=log<sub>2</sub>n —>时间复杂度 O(log<sub>2</sub>n)
+5. 递推公式：（构造h层所需最少结点）n<sub>h</sub>=1+n<sub>h-1</sub>+n<sub>h-2</sub> （n0=0，n1=1）
 
-# 二、数形查找
+### 红黑树RBT
+> 平衡二叉树每次插入都需要调整平衡，时间开销大 - 查找频繁
+> 红黑树RBT的插入删除一般不会破坏‘红黑’特性 - 增删频繁
+> *不考代码*
 
+1. 定义：【根叶黑、左根右、不红红、黑路同】
+	1. 根节点黑色
+	2. 叶节点（失败结点NULL）黑色
+	3. 不存在相邻的红结点（父黑-红-子黑）
+	4. 结点到任意叶结点的简单路径上，所含黑色结点的数量相同
+2. 性质
+	- 黑高bh：结点到任意叶结点经过的黑色结点数量（不含本体）
+		- 总高度h，黑高>=h/2，非叶结点数n>=2<sup>h/2</sup>-1⤵
+	- 红黑树高度h<=2log<sub>2</sub>(n+1)【—>查找效率O(log<sub>2</sub>n)】
+	- 从根到叶结点的最长路径<=最短路径x2【相对于AVL，允许左右子树高度差达2倍】
+	
+3. 插入
+	- 新插入的结点**初始为红色**，并且按序插入在左子树或右子树上
+	【插入黑色时必然破坏性质4，插入红色时可能会破坏性质3】
+	- 插入重复结点时，插在左边右边都可以
+	- 变新操作时，若爷结点是红色结点，只需考虑是否破坏性质3
+	- 调整，维持性质1~4⬇
+
+> 1. 新结点是根——染黑色
+> 2. 新结点不是根——染红色
+> 	- 若直接满足性质1~4，结束
+> 	- 若不满足，则根据父节点的兄弟结点（叔结点）做出调整
+> 		- 叔结点黑色：旋转--染色
+> 				1. LL：父结点替换爷结点，染色
+> 				2. RR：父结点替换爷结点，染色
+> 				3. LR：子结点替换爷结点，染色
+> 				4. RL：子结点替换爷结点，染色
+> 		- 叔结点红色：染色--变新
+> 
+> 旋转--染色：进行替换的两个结点反色
+>  ![|580](A一次元/images/Pasted%20image%2020260515104121.png)
+> 染色--变新：父-叔-爷，三个结点反色，并且将爷结点视为新插入的结点
+> - 违反’根叶红‘
+> ![|600](A一次元/images/Pasted%20image%2020260515104728.png)
+> - 违反’不红红‘，然后又违反’根叶红‘
+> ![](A一次元/images/Pasted%20image%2020260515110047.png)
+
+> 动画演示网站 [Red/Black Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
+
+4. 红黑树的删除*
 # 三、B树 与 B+树
+> 难度高
+> *不考代码*
 
+### B树
+>  又称多路平衡查找树，B树中所有结点的孩子个数的最大值称为B树的阶，通常用m表示（B树可能为空树）5阶⤵
+>  核心特性：尽可能满（至少分\\[m/2]叉，充分利用空间），绝对平衡（所有子树高度相等），有序（左子树<关键字<右子树）
+
+![|670](A一次元/images/Pasted%20image%2020260516210326.png)
+1. 性质：
+	1. 树中每个结点：至多有m棵子树，至多有m-1个关键字
+	2. 除根结点外的所有非叶结点：至少有\\[m/2]棵子树，至少有\\[m/2]-1个关键字
+		【向上取整，5叉树至少有3个分支，2个关键字】
+	3. 若根结点不是终端结点（只有根），则至少有两棵子树【绝对平衡】
+	4. 所有叶结点都出现在同一层，并且不带信息【可以视为外部结点或类似于折半查找判定树的查找失败结点，实际上这些结点不存在，指向这些结点的指针为空】
+	5. 非叶结点的结构：
+		![|560](A一次元/images/Pasted%20image%2020260516211416.png)
+		- K<sub>i</sub>（i=1,2,..,n）为结点的关键字，且满足K<sub>1</sub><K<sub>2</sub><...<K<sub>n</sub>；【结点内有序】
+		- P<sub>i</sub>（i=0,1,..,n）为指向子树根结点的指针，且指针P<sub>i-1</sub>所指子树中所有结点的关键字均小于K<sub>i</sub>；P<sub>i</sub>所指子树中所有结点的关键字均大于K<sub>i</sub>，
+		- n为结点中关键字的个数（\\[m/2]-1<= n <=m-1)
+
+2. 高度
+	最小高度：h>=log<sub>m</sub>(n+1)
+	——n<=(m-1)(1+m+m<sup>2</sup>+...+m<sup>h-1</sup>)=m<sup>h</sup>-1【每层尽可能满】
+	最大高度：h<=log<sub>[m/2]</sub>((n+1)/2)+1
+	——n+1>=2(\\[m/2])<sup>h-1</sup>【每层分叉最少】
+	- n个关键字有n+1个叶子结点，即n+1个数据域
+3. B树的查找：多路分支
+4. B树的插入
+	1. 定位：查找终端结点
+	2. 分裂：当插入后关键字超出上限（m-1）时
+		- 把中间结点\\[m/2]放到父结点
+		- 从中间位置将结点分为两颗子树，若父结点也超出上限则递归分裂 
+5. B树的删除
+	- 位于非终端结点：直接用直接前驱/后继来替换
+	- 位于终端结点：
+		1. 结点关键字个数>=\\[m/2]：直接删除
+		2. 结点关键字不足&兄弟结点足够时，父-兄-子交换（中序相邻）
+			![|210](A一次元/images/Pasted%20image%2020260517110826.png)——>![210](A一次元/images/Pasted%20image%2020260517110911.png)
+		3. 结点关键字不足&兄弟结点也不足，父-兄-子合并为一个结点
+			(若父结点在合并后<\\[m/2])
+			![210](A一次元/images/Pasted%20image%2020260517111530.png)——>![210](A一次元/images/Pasted%20image%2020260517111626.png)
+### B+树
+![](A一次元/images/Pasted%20image%2020260517112557.png)
+> 非叶节点不存信息，使得一个磁盘块可以包含更多关键字，从而使树高度降低，提高了查找效率
+> 典型应用：索引，mysql
+### B树与B+树的比较
+1. B树n个结点对应n+1课子树；B+树n个结点对应n棵子树
+2. B树根节点\\[1，m-1]，其他结点关键字\\[\\[m/2]-1,m-1]；
+	B+树根节点\\[1，m]，其他结点关键字\\[\\[m/2],m]；
+3. B树关键字不重复
+	B+树叶节点包含所有关键字，并且可能在多个结点中重复出现
+4. B树的结点中有关键字对应的信息（或者信息的存储地址）叶结点表示查找失败
+	B+树中只有叶结点包含信息，非叶结点仅用于检索
+5. B+树中叶结点是一个线性链表，可以顺序查找
+![|560](A一次元/images/Pasted%20image%2020260517113910.png)
 # 四、散列（哈希）表
-`,xe=`## 基本概念
-# 一、插入排序
+> 哈希函数：Addr=Hash(key)
+> 冲突：插入地址已有元素
+> 同义词：不同关键字有相同地址
+### 散列函数的构造
+> 条件：1.定义域何值域覆盖所有关键字和散列表 2.尽可能减少冲突 3.散列函数尽可能简单
 
+1. 余数法：H(key) = key%p（p选取质数）
+2. 直接地址：H(key) = a\\*key+p
+3. 数字分析：（手机后四位）
+4. 平方取中：（平方后取中间几位数，相对不会重复）
+### 处理冲突
+1. 拉链法：把同义词组织成**链表**
+2. 开放地址法：让空闲地址存储冲突元素，使用探测序列查找下一个空闲地址
+	- 删除元素时，不能直接把被删元素空间置空，否则会截断同义词的查找路径，应该标记元素为‘已删除’
+	1. 线性探测法：顺序存至下一个单元
+	2. 平方探测法：探测序列—1,-1,4,-4...k,-k<sup>2</sup>
+	3. 双散列法：用第二个hash函数计算探测序列，H<sub>i</sub>=(H(key)+i\\*H<sub>2</sub>(key))%m，当H<sub>2</sub>(key)与m互质时，可以保证双散列法探测所有单元
+	4. 伪随机法：探测序列是伪随机数
+### 散列表的性能分析
+> 以线性探测法为例
+
+- ASL计算
+	![|560](A一次元/images/Pasted%20image%2020260518101339.png)		
+	- ASL<sub>失败</sub>与表中元素的数量有关（遍历后仍未找到）
+		![|430](A一次元/images/Pasted%20image%2020260518101730.png)
+	- 删除一个元素后，不影响其他元素的查找长度
+		![|550](A一次元/images/Pasted%20image%2020260518102317.png)
+
+- **装填因子**：a = 表中元素个数n / 哈希表长度m
+	装填因子越大越容易发生冲突，导致插入查找效率降低，ASL增大
+- **堆积现象**：几个初始地址不同的元素争夺同一个空闲地址（线性探测法经常出现）
+	可以使用平方探测法减少堆积现象`,xe=`> 算法可视化：https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+### 基本概念
+- 排序的稳定性：若经过排序后，**关键字相同的元素**在排序前后的**相对位置**不变，则称这种排序算法是稳定的
+- 内部排序：数据都在内存中——让时/空间复杂度尽可能低
+- 外部排序：还需关注读写磁盘次数更少
+# 一、插入排序
+> 每次将一个待排序的记录插入一个已经排好序的子序列中，直到每个元素都插入完成
+> - 最坏时间复杂度：O(n<sup>2</sup>)（遍历x插入）
+> - 最好时间复杂度：O(n)（原本有序）
+> - 空间复杂度：O(1)
+> - 稳定排序
+### 直接插入排序
+\`\`\`c
+//直接插入排序(前i位为已排序子序列)
+void InsertSort(int A[],int n){
+	int i,j,temp;
+	for(i=1;i<n;i++){		//将各元素插入已排好序的序列中
+		if(A[i]<A[i-1]){	//若A[i]关键字小于前驱
+			temp=A[i];		//用temp暂存A[i]
+			for(j=i-1;j>=0&&A[j]>temp;--j)	//检查所有前面已排好序的元素
+				A[j+1]=A[j];//所有大于temp的元素都向后挪位
+			A[j+1]=temp;	//复制到插入位置
+\`\`\`
+### 折半插入排序
+- 在每次新元素插入时，使用折半查找的方式找插入位置
+\`\`\`c
+//折半插入排序
+void InsertSort(int A[l,int n){
+	int i,j,low,high,mid;
+	for(i=2;i<=n;i++){			//依次将A[2]~A[n]插入前面的已排序序列
+		A[0]=A[i];				//将A[i]暂存到A[0]【哨兵法】
+		low=1;high=i-1;			//设置折半查找的范围
+		while(low<=high){		//折半查找（默认递增有序）
+			mid=(low+high)/2;	
+			if(A[mid]>A[0]) high=mid-1；//查找左半子表
+			else low=mid+1;		//查找右半子表
+		}
+		for(j=i-1;j>=high+1;--j)
+			A[j+1]=A[j];		//统一后移元素，空出插入位置
+		A[high+1]=A[0];			//插入操作
+}
+\`\`\`
+> 哨兵法：让A\\[0]存放待比较元素，简化循环条件，即不用判断j<0的情况（<u>遍历到自身时循环自然结束</u>）
+### 希尔排序
+> 对一个基本有序的序列进行直接插入排序，可以提高效率
+> - 时间复杂度：优于直接插入
+> - 空间复杂度：O(1)
+> - 不稳定
+
+通过逐步缩小增量的方式，对相隔一定距离的元素构成的子串进行多次直接插入排序
+![|500](A一次元/images/Pasted%20image%2020260519091007.png)
+![|500](A一次元/images/Pasted%20image%2020260519091107.png)
+第三趟：d<sub>3</sub>=1，即对原表进行插入排序
+ \`\`\`c
+//希尔排序
+void ShellSort(int A[l,int n){
+	int d,i,j;
+	//A[0]只是暂存单元，不是哨兵，当j<=0时，插入位置已到
+	for(d=n/2;d>=1;d=d/2)		//步长变化
+		for(i=d+1; i<=n; ++i)
+			if(A[i]<A[i-d]){	//需将A[i]插入有序增量子表
+				A[0]=A[i];		//暂存在A[0]
+				//将i与i+d,i+2d...当作子表来进行插入排序
+				for(j= i-d; j>0 &&A[0]<A[j]; j-=d)
+					A[j+d]=A[j];//记录后移，查找插入的位置
+				A[j+d]=A[0];	//插入
+ \`\`\`
 # 二、交换排序 
 
+### 冒泡排序
+> 多次遍历，每次遍历都对相邻的两个元素进行排序交换
+> - 时间复杂度：O(n<sup>2</sup>)（遍历x交换）
+> - 空间复杂度：O(1)
+> - 稳定
+> - 可以用于链表
+\`\`\`c
+//冒泡排序
+void BubbleSort(int A[l,int n){
+	for(int i=0;i<n-1;i++){
+		bool flag=false;	 	//表示本趟冒泡是否发生交换的标志
+		for(int j=n-l;j>i;j--)	//一趟冒泡过程
+		if(A[j-1]>A[j]){		//若为逆序【相等时不交换,稳定排序】
+			swap(A[j-1],A[j])；	//交换函数，用中间变量temp
+			flag=true;
+		}
+	if(flag==false)
+	return;//本趟遍历后没有发生交换，说明表已经有序
+\`\`\`
+
+### 快速排序
+> 使用一个枢轴量，通过一次划分将表分成左子表<右子表，然后递归划分
+> - 最坏时间复杂度：O(n<sup>2</sup>)
+> - 最好/平均时间复杂度：O(nlog<sub>2</sub>n)（n\\*递归层数）
+> - 最坏空间复杂度：O(n)
+> - 最好/平均空间复杂度：O(log<sub>2</sub>n)（递归层数）
+> 	1. 若每次划分刚好一半，则递归栈层数为log<sub>2</sub>n，最坏为n-1⤴
+> 	2. 把排好序的表元素组织成二叉树，二叉树的层数就是递归层数（\\[log<sub>2</sub>n]+1~n)
+> - 不稳定
+> - 仅顺序存储
+
+\`\`\`c
+//用第一个元素将待排序序列划分成左右两个部分
+int Partition(int A[l,int low,int high){
+	int pivot=A[low];	//第一个元素作为枢轴
+	while(low<high){	//用low、high搜索枢轴的最终位置
+		while(low<high&&A[high]>=pivot)  --high;
+			A[low]=A[high];		//比枢轴小的元素移动到左端
+		while(low<high&&A[low]<=pivot)   ++low;
+			A[high]=A[low];		//比枢轴大的元素移动到右端
+	}
+	A[low]=pivot;		//枢轴元素存放到最终位置
+	return low;			//返回存放枢轴的最终位置
+}	
+
+//快速排序--递归
+void QuickSort(int A[l,int low,int high){
+	if(low<high){//递归跳出的条件
+		intpivotpos=Partition(A,low,high);//划分
+		QuickSort(A,low,pivotpos-1)；//划分左子表
+		QuickSort(A,pivotpos+1,high)；//划分右子表
+}
+\`\`\`
+1. 第一次对主表的划分：
+	- 第一个元素49作为枢轴，high=49不移动，high=27<49移动
+		![|246](A一次元/images/Pasted%20image%2020260519094407.png)
+	- low=38<49不移动，low=65>49移动
+		![|243](A一次元/images/Pasted%20image%2020260519094455.png)
+	- 第一次划分结果：
+		![|400](A一次元/images/Pasted%20image%2020260519095317.png)
+2. 对左右子表分别进行递归划分
+
+
+
+> [快速排序-递归工作栈的过程原理-详解](https://www.bilibili.com/video/BV1b7411N798/?spm_id_from=333.788.player.switch&vd_source=a71201b56b8104dbc40a094df804a731&p=94)
 # 三、选择排序
+### 简单选择排序
+> 在待排序元素中选取最小的加入有序子序列
+> - 时间复杂度O(n<sup>2</sup>)，比较次数为n(n-1)/2与序列初始状态无关
+> - 空间复杂度O(1)
+> - 不稳定（swap）
 
+\`\`\`c
+//简单选择排序
+void SelectSort(int A[l,int n){
+	for(int i=0;i<n-l;i++){		//一共进行n-1趟
+		int min=i;				//记录最小元素位置
+	for(int j=i+l;j<n;j++)		//在A[i...n-1]中选择最小的元素
+		if(A[j]<A[min])min=j;	//更新最小元素位置
+		if(min!=i)	swap(A[i],A[min]);
+		//swap函数，把最小数放在待排序序列最前
+	}
+\`\`\`
+### 堆排序
+> 完全二叉树中，可以方便判断根与左右孩子的关系（ i的左孩子—2i  /右孩子—2i+1  ）所以堆使用顺序存储的完全二叉树
+> - 大根堆：根>=左右子树
+> - 小根堆：根<=左右子树
+> - 时间复杂度：O(nlog<sub>2</sub>n)
+> 	- 建立堆O(n)--关键字比较次数<=4n
+> 	- 堆的调整O(log<sub>2</sub>n)--关键字下坠调整复杂度不超过O(h)，h=\\[log<sub>2</sub>n]+1
+> - 空间复杂度：O(1)
+> - 不稳定（swap）
+	
+1. 堆的建立：遍历所有非终端结点，如果不满足定义则将父结点与子结点交换
+\`\`\`c
+//建立大根堆
+void BuildMaxHeap(int A[],int len){
+	for(int i=len/2;i>0;i--)	//从后往前调整所有非终端结点
+	HeadAdjust(A,i,len);
+}
+//将以k为根的子树调整为大根堆 【较小根k不断下坠】
+void HeadAdjust(int A[],int k,int len){
+	A[0]=A[k];					//A[0]暂存子树的根结点【类似标兵】
+	for(int i=2*k;i<=len;i*=2){	//沿key较大的子结点向下筛选
+		if(i<len && A[i]<A[i+1])
+			i++;				//取key较大的子结点的下标
+		if(A[0]>=A[i])	break;	//筛选结束
+		else{
+			A[k]=A[i];			//将A[i]调整到双亲结点上
+			k=i;				//修改k值，以便继续向下筛选
+		}
+	}
+	A[k]=A[0];	//被筛选结点的值放入最终位置
+}
+\`\`\`
+> 元素‘下坠’过程中，关键字比较次数
+> - 有两个孩子比较2次，只有一个孩子则比较1次（i\\==len时直接到else⤴）
+> - 总次数<=4n
+
+
+2. 堆排序：每一趟将堆顶元素加入有序子序列
+	【将堆顶与最后一个元素互换，然后将其排除在外，重新进行堆的调整】
+	最后大根堆-->递增序列
+	![|230](A一次元/images/Pasted%20image%2020260528103801.png)![|230](A一次元/images/Pasted%20image%2020260528103949.png)
+\`\`\`c
+//建立大根堆
+void BuildMaxHeap(int A[],int len)
+
+//将以k为根的子树调整为大根堆
+void HeadAdjust(int A[],int k,int len)
+
+//堆排序的完整逻辑
+void HeapSort(int A[],int len)(
+	BuildMaxHeap(A,len);		//初始建堆
+	for(int i=len;i>l;i--){		//n-1趟的交换和建堆过程
+		swap(A[i],A[1]);		//堆顶元素和堆底元素交换
+		HeadAdjust(A,1,i-1);	//把剩余的待排序元素整理成堆
+\`\`\`
+3. 堆的插入与删除
+- 插入：新结点放在表尾，与父结点对比，并不断交换’上升‘
+- 删除：待删除结点与表尾元素进行交换，然后将待删除结点排除在外，调整堆，表尾元素‘下坠’
 # 四、归并排序 基数排序 计数排序
+### 归并排序
+> 将序列中每个元素两两归并，再将归并完的子序列两两归并（二路）
+>
+> - 时间复杂度O(nlog<sub>2</sub>n) 
+> 	- 一趟的复杂度O(n)，最多比较n-1次
+> 	- 归并树高\\[log<sub>2</sub>n]
+>  - 空间复杂度O(n)
+>  - 稳定
 
+- 二路归并：两个序列合并为一个
+	![|380](A一次元/images/Pasted%20image%2020260531103029.png)
+- 归并排序：递归进行二路归并
+	![|390](A一次元/images/Pasted%20image%2020260531103411.png)
+
+\`\`\`c
+int *B=(int*)malloc(n*sizeof(int))；//辅助数组B
+
+//A[low...mid]和A[mid+...high]各自有序，将两个部分归并
+void Merge(int A[],int low,int mid,int high){
+	int i,j,k;	
+	for(k=low;k<=high;k++)
+		B[K]=A[K];				//将A中所有元素复制到B中
+	for(i=low,j=mid+1,k=i;i<=mid&&j<=high;k++){
+		if(B[i]<=B[j])
+			A[K]=B[i++];//将较小值复制到A中
+		else
+			A[k]=B[j++];
+	//将左半或者右半剩余部分放到序列后部
+	while(i<=mid)	A[k++]=B[i++];
+	while(j<=high)	A[k++]=B[j++];
+
+//递归处理 直到当左右都只剩一个元素时，mergesort不处理，跳到merge进行归并
+void MergeSort(int A[],int low,int high){
+	if(low<high){
+		int mid=(low+high)/2;		//从中间划分
+		MergeSort (A,low,mid);		//对左半部分归并排序
+		MergeSort(A,mid+1,high)；	//对右半部分归并排序
+		Merge(A,low,mid,high);
+
+\`\`\`
+### 基数排序
+> 不基于比较的排序算法
+> - 时间复杂度O(d*(n+r))：
+> 	- r表示关键字可能的取值0~9 -->辅助队列Q\\[9]~Q\\[0]
+> 	- d表示三位数，需要3趟‘分配’
+> 	- n表示总共有n个元素，需要遍历‘收集’
+> - 空间复杂度O(r)：辅助队列（链式存储）
+> - 稳定
+
+1. 第一趟：让个位相对有序
+	![|480](A一次元/images/Pasted%20image%2020260601102414.png)
+	![|470](A一次元/images/Pasted%20image%2020260601102506.png)
+2. 第二趟：十位相对有序（十位相同的个位依然有序）
+	![|420](A一次元/images/Pasted%20image%2020260601102900.png)
+	![|460](A一次元/images/Pasted%20image%2020260601102942.png)
+3. 第三趟：同上
+- 应用：年月日排序
+- 关键字取值r较小，元素数量n较大
+### \\*计数排序
+<u>【不在考纲中，但是排序思想多次出现】</u>
+> 整型，元素在0~k-1之间取值
+> - 用空间换时间
+> - 时间复杂度O(n+k)
+> 	- 排序效率与元素取值k有关，k=n
+> - 空间复杂度O(n+k)
+> - 稳定
+
+待排序数组：
+![|246](A一次元/images/Pasted%20image%2020260601105547.png)
+1. 创建一个计数数组C\\[k]，表示数i在待排序序列出现的次数
+2. 更新数组C\\[i]，统计小于等于i的元素个数【累加法】
+	![|470](A一次元/images/Pasted%20image%2020260601105804.png)
+3. 对原数组进行排序，存入新数组中，使用C\\[i]-1表示数i的新位置
+	A\\[1]=4，C\\[A\\[1]]=8，C\\[4]-1-->7，B\\[C\\[4]]=4
+	![|300](A一次元/images/Pasted%20image%2020260601110027.png)
+
+\`\`\`c
+//计数排序
+void CountSort(int A[], int B[],int n, int k){
+	int i,C[k];				//辅助数组c的长度取决于待排F
+	for(i=0;i<k;i++)		//初始化计数数组
+		C[i]=0;
+	for(i=0;i<n;i++)		//1. 遍历待排序数组，统计i出现次数
+		C[A[i]]++;
+	for(i=l;i<k;i++)		//2. 更新计数数组
+		C[i]=C[i]+C[i-1];	//累加法 C[i]保存 小于或等于i元素个数
+	for(i=n-l;i>=0;i--){	//3. 利用辅助数组c实现排序
+		C[A[i]]=C[A[i]]-1;
+		B[C[A[i]]]=A[i]；	//将元素A[i]放在输出数组B[]
+
+\`\`\`
 # 五、各种排序算法的比较及应用
 
-# 六、外部排序`,Se=`>1. 概述
+# 六、外部排序
+### 外部排序
+> 外存与内存之间的数据交换
+> <u>利用内存中的输入缓冲区作为辅助空间，对外存中的数据进行归并排序</u>
+> - 外部排序时间开销 = 读写外存时间+内部排序时间+内部归并时间
+
+![|620](A一次元/images/Pasted%20image%2020260601212600.png)
+- 多路归并：增加内存中的缓冲区数量，进行多路归并排序
+	- 减少了归并趟数，从而减少磁盘读取次数
+- **k路平衡归并**
+	1. 最多只能有k个归并段
+	2. 每一趟归并中，若有m个归并段参与归并，则经过这一趟处理得到\\[m/k]个新的归并段【平衡性】
+		eg:\\[8/4]=2，但是第一趟产生三个归并段，所以不是平衡的⤵
+		![|420](A一次元/images/Pasted%20image%2020260601213026.png)
+### 败者树
+> 增加归并路数k，导致每次都需要从k个归并段中进行k-1次对比
+> <u>通过败者树对于数据（归并段）大小的记忆性，减少对比次数</u>
+
+1. 第一轮比赛：构建败者树，得到最小数1——来自**归并段3**
+![|630](A一次元/images/Pasted%20image%2020260601213603.png)
+2. 第二轮比赛：归并段3的下一个元素，与上一轮的比赛结果进行比较，得到第二轮的最小数2——来自**归并段5**
+	![|570](A一次元/images/Pasted%20image%2020260601214155.png)
+- 第二轮及以后的比赛都只需要比较3次，即败者树的高：\\[log<sub>2</sub>k]
+	- eg:五路败者树，左边比较\\[log<sub>2</sub>5]=3次，右边比较log4=2次
+		![|221](A一次元/images/Pasted%20image%2020260601214748.png)
+### 置换-选择排序
+### 最佳归并树`,Se=`>1. 概述
 >2. 应用层
 >3. 传输层
 >4. 网络层-数据平面/控制平面
