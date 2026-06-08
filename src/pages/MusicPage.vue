@@ -71,9 +71,9 @@ function setVolume(e) {
         title="随机播放"
         @click="randomTrack"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 8l8 8m0-8v8H8" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 6h2a2 2 0 012 2v2M6 16H4a2 2 0 01-2-2v-2" />
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 3h5v5M4 20l7-7m0-6l7 7M21 3l-5 5M9 14l-5 5" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 3v5h-5M3 21v-5h5" />
         </svg>
       </button>
 
@@ -111,9 +111,8 @@ function setVolume(e) {
         class="w-10 h-10 rounded-full flex items-center justify-center text-slate-400 hover:text-primary-500 hover:bg-primary-50 transition-all"
         title="列表循环"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 4v5h5M20 20v-5h-5" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 9a9 9 0 019-9 9 9 0 019 9 9 9 0 01-9 9" />
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
         </svg>
       </button>
     </div>

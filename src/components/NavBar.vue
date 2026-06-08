@@ -39,7 +39,7 @@ function isActive(path) {
       <!-- Left: Logo + Music bar -->
       <div class="flex items-center gap-3">
         <router-link to="/" class="text-xl font-bold gradient-text tracking-tight shrink-0">
-          My Blog
+          Arkbai Blog
         </router-link>
 
         <!-- Global music mini bar -->

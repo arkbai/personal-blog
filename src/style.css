@@ -34,10 +34,16 @@ body {
   margin: 0;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f0f6fc; }
-::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #60a5fa; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 5px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: #64748b; border: 2px solid transparent; background-clip: padding-box; }
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 transparent;
+}
 
 @keyframes blink {
   0%, 100% { opacity: 1; }

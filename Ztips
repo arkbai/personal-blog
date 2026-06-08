@@ -1,0 +1,11 @@
+# 导入计网笔记到 cs-notes/计算机网络/
+node scripts/import-obsidian.mjs "F:/Obsidian files/MyDomain/408/计网408" cs-notes/计算机网络
+
+# 带图片附件目录
+node scripts/import-obsidian.mjs "F:/Obsidian files/MyDomain/408/计网408" cs-notes/计算机网络 "F:/Obsidian files/MyDomain/A一次元/其他附件" "F:/Obsidian files/MyDomain/A一次元/暂时保存"
+
+# 导入随笔
+node scripts/import-obsidian.mjs "F:/Obsidian/我的随笔" essays
+
+# 也可以写绝对路径
+node scripts/import-obsidian.mjs "F:/Obsidian/某文件夹" "D:/Code/personal blog/src/content/essays/日记"

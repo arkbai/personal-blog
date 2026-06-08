@@ -73,7 +73,7 @@ function onSearchInput(e) {
               <li v-for="item in tocItems" :key="item.id">
                 <a
                   :href="`#${item.id}`"
-                  class="block text-sm text-slate-500 hover:text-primary-500 transition-colors py-1 px-2 rounded-md hover:bg-primary-50"
+                  class="block text-sm text-slate-500 hover:text-primary-500 transition-all py-1 px-2 rounded-md hover:bg-slate-100 active:bg-slate-200"
                 >
                   {{ item.label }}
                 </a>
@@ -81,7 +81,7 @@ function onSearchInput(e) {
                   <li v-for="child in item.children" :key="child.id">
                     <a
                       :href="`#${child.id}`"
-                      class="block text-xs text-slate-400 hover:text-primary-500 transition-colors py-0.5 px-2 rounded-md hover:bg-primary-50"
+                      class="block text-xs text-slate-400 hover:text-primary-500 transition-all py-0.5 px-2 rounded-md hover:bg-slate-100 active:bg-slate-200"
                     >
                       {{ child.label }}
                     </a>

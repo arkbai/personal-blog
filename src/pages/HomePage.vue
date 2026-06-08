@@ -12,12 +12,12 @@ const cardsVisible = ref(false)
 let observer = null
 
 const sections = [
-  { name: '随笔', desc: '随想随写，记录日常思绪', path: '/essays', icon: '✍️' },
-  { name: '计算机笔记', desc: '技术积累与学习记录', path: '/cs-notes', icon: '💻' },
-  { name: 'OC设定', desc: '原创角色与世界观设定', path: '/oc-settings', icon: '🎨' },
-  { name: '音乐', desc: '聆听与收藏', path: '/music', icon: '🎵' },
-  { name: '待续', desc: '更多内容即将到来', path: '/upcoming', icon: '🚧' },
-  { name: '留言', desc: '来都来了，说点什么吧', path: '/guestbook', icon: '💬' },
+  { name: '随笔', desc: '随想随写，记录日常思绪', path: '/essays', icon: '✍️', size: 'h-40' },
+  { name: '计算机笔记', desc: '技术积累与学习记录', path: '/cs-notes', icon: '💻', size: 'h-52' },
+  { name: 'OC设定', desc: '原创角色与世界观设定', path: '/oc-settings', icon: '🎨', size: 'h-36' },
+  { name: '音乐', desc: '聆听与收藏', path: '/music', icon: '🎵', size: 'h-48' },
+  { name: '待续', desc: '更多内容即将到来', path: '/upcoming', icon: '🚧', size: 'h-36' },
+  { name: '留言', desc: '来都来了，说点什么吧', path: '/guestbook', icon: '💬', size: 'h-44' },
 ]
 
 onMounted(() => {
@@ -79,7 +79,7 @@ function startAnimation() {
         <div
           v-if="phase === 'done'"
           class="text-6xl md:text-7xl lg:text-8xl text-black absolute whitespace-nowrap"
-          style="font-family: 'ZhouFang', var(--font-body)"
+          style="font-family: 'ZhouFang', var(--font-body); -webkit-text-stroke: 2px #1e40af; paint-order: stroke fill;"
         >
           欢迎   welcome
         </div>
@@ -95,40 +95,42 @@ function startAnimation() {
       </transition>
     </section>
 
-    <!-- ═══ Screen 2: Cards ═══ -->
+    <!-- ═══ Screen 2: Cards (masonry 3-col) ═══ -->
     <section
       id="cards-section"
-      class="h-full snap-start flex flex-col items-center justify-center relative px-6"
+      class="h-full snap-start flex items-center relative overflow-hidden"
     >
-      <div class="w-full max-w-lg mx-auto relative z-10">
-        <transition name="cards-enter">
-          <div v-if="cardsVisible" class="grid grid-cols-2 gap-4">
-            <div
-              v-for="(section, i) in sections"
-              :key="section.name"
-              class="rounded-2xl p-6 cursor-pointer text-center group transition-all duration-500"
-              :class="cardsVisible
-                ? 'bg-white shadow-md hover:shadow-lg hover:scale-[1.02]'
-                : 'bg-white/30 backdrop-blur-md border border-white/50'"
-              :style="{ transitionDelay: `${i * 0.05}s` }"
-              @click="router.push(section.path)"
-            >
-              <div class="text-3xl mb-3">{{ section.icon }}</div>
-              <div class="text-base font-medium text-slate-700 group-hover:text-blue-500 transition-colors">
-                {{ section.name }}
-              </div>
-              <div class="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                {{ section.desc }}
+      <div class="w-full h-full px-4 md:px-8 py-16 flex items-center">
+        <div class="w-full h-full max-h-full">
+          <transition name="cards-enter">
+            <div v-if="cardsVisible" class="columns-3 gap-4">
+              <div
+                v-for="(section, i) in sections"
+                :key="section.name"
+                class="rounded-2xl p-5 cursor-pointer text-center group transition-all duration-500 mb-4 break-inside-avoid"
+                :class="cardsVisible
+                  ? 'bg-white shadow-md hover:shadow-lg hover:scale-[1.02]'
+                  : 'bg-white/30 backdrop-blur-md border border-white/50'"
+                :style="{ transitionDelay: `${i * 0.06}s` }"
+                @click="router.push(section.path)"
+              >
+                <div class="text-3xl mb-2">{{ section.icon }}</div>
+                <div class="text-base font-medium text-slate-700 group-hover:text-blue-500 transition-colors">
+                  {{ section.name }}
+                </div>
+                <div class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                  {{ section.desc }}
+                </div>
               </div>
             </div>
-          </div>
-        </transition>
+          </transition>
 
-        <transition name="fade">
-          <p v-if="cardsVisible" class="text-xs text-black/30 text-center mt-8 tracking-wider">
-            向上滚动回到欢迎
-          </p>
-        </transition>
+          <transition name="fade">
+            <p v-if="cardsVisible" class="text-xs text-black/30 text-center mt-6 tracking-wider">
+              向上滚动回到欢迎
+            </p>
+          </transition>
+        </div>
       </div>
     </section>
   </div>

@@ -1,23 +1,17 @@
 /**
  * Obsidian → Blog 批量导入脚本
  *
- * 功能：
- *   1. 转换 ![[图片]] 为 Markdown 图片语法，并复制图片到 public/images/obsidian/
- *   2. 转换 [[Wiki链接]] 为 Markdown 链接
- *   3. 转换 Obsidian callout (> [!note]) 为标准 blockquote
- *   4. 支持指定额外的附件目录来搜索图片
- *   5. 支持指定子文件夹，分类归档
- *
  * 用法：
- *   node scripts/import-obsidian.mjs <Obsidian路径> <目标分类> [子文件夹名] [附件目录...]
+ *   node scripts/import-obsidian.mjs <源路径> <目标路径> [图片目录...]
  *
  * 示例：
- *   node scripts/import-obsidian.mjs "D:/Obsidian/计网" cs-notes 计算机网络
- *   node scripts/import-obsidian.mjs "D:/Obsidian/计网" cs-notes 计算机网络 "D:/附件" "D:/图片"
+ *   node scripts/import-obsidian.mjs "F:/Obsidian/408/计网" cs-notes/计算机网络
+ *   node scripts/import-obsidian.mjs "F:/Obsidian/408/计网" cs-notes/计算机网络 "F:/附件" "F:/图片"
+ *   node scripts/import-obsidian.mjs "F:/Obsidian/随笔" essays "F:/附件"
  */
 
 import { readFileSync, writeFileSync, copyFileSync, mkdirSync, readdirSync, statSync } from 'fs'
-import { join, basename, relative, dirname } from 'path'
+import { join, basename, relative, dirname, isAbsolute } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -28,28 +22,39 @@ const IMAGES_DIR = join(ROOT, 'public', 'images', 'obsidian')
 // ── Parse CLI args ──
 const args = process.argv.slice(2)
 if (args.length < 2) {
-  console.log('用法: node scripts/import-obsidian.mjs <Obsidian路径> <目标分类> [子文件夹名] [附件目录...]')
-  console.log('分类: essays | cs-notes | oc-settings')
-  console.log('示例: node scripts/import-obsidian.mjs "D:/Obsidian/计网" cs-notes 计算机网络 "D:/附件"')
+  console.log('用法: node scripts/import-obsidian.mjs <源路径> <目标路径> [图片目录...]')
+  console.log('')
+  console.log('  源路径    Obsidian 仓库中笔记的文件夹绝对路径')
+  console.log('  目标路径  博客中的目标位置，可以是:')
+  console.log('             - 相对路径 (相对于 src/content/)，如 cs-notes/计算机网络')
+  console.log('             - 绝对路径，如 D:/blog/src/content/cs-notes/计算机网络')
+  console.log('  图片目录  额外的附件文件夹路径 (可多个)，用于搜索 ![[图片]] 引用的文件')
+  console.log('')
+  console.log('示例:')
+  console.log('  node scripts/import-obsidian.mjs "F:/Obsidian/408/计网" cs-notes/计算机网络')
+  console.log('  node scripts/import-obsidian.mjs "F:/Obsidian/408/计网" cs-notes/计算机网络 "F:/附件" "F:/图片"')
   process.exit(1)
 }
 
-const [vaultPath, category] = args
-const subfolder = args[2] && !args[2].includes(':') ? args[2] : null
-const extraDirs = args.slice(subfolder ? 3 : 2).filter(a => a.includes(':'))
+const sourcePath = args[0]
+const targetArg = args[1]
 
-const validCategories = ['essays', 'cs-notes', 'oc-settings']
-if (!validCategories.includes(category)) {
-  console.error(`错误: 分类必须是 ${validCategories.join(' | ')} 之一`)
-  process.exit(1)
-}
+// Target: if absolute path, use as-is; otherwise relative to CONTENT_DIR
+const targetDir = isAbsolute(targetArg) ? targetArg : join(CONTENT_DIR, targetArg)
 
-// Ensure target directories exist
-const targetDir = subfolder ? join(CONTENT_DIR, category, subfolder) : join(CONTENT_DIR, category)
+// Extra image directories: remaining args that are paths (contain drive letter or /)
+const extraDirs = args.slice(2).filter(a => /[:\/]/.test(a))
+
+// Target name for display
+const targetDisplay = targetDir.startsWith(CONTENT_DIR)
+  ? relative(CONTENT_DIR, targetDir).replace(/\\/g, '/')
+  : targetDir
+
+// Ensure directories exist
 mkdirSync(targetDir, { recursive: true })
 mkdirSync(IMAGES_DIR, { recursive: true })
 
-// ── Scan image files from vault + extra attachment dirs ──
+// ── Scan images ──
 const imageMap = new Map()
 
 function scanImages(dir, depth = 0) {
@@ -61,32 +66,28 @@ function scanImages(dir, depth = 0) {
     if (entry.startsWith('.')) continue
     try {
       const st = statSync(full)
-      if (st.isDirectory()) {
-        scanImages(full, depth + 1)
-      } else if (/\.(png|jpg|jpeg|gif|svg|webp|bmp)$/i.test(entry)) {
-        if (!imageMap.has(entry)) {
-          imageMap.set(entry, full)
-        }
+      if (st.isDirectory()) { scanImages(full, depth + 1) }
+      else if (/\.(png|jpg|jpeg|gif|svg|webp|bmp)$/i.test(entry)) {
+        if (!imageMap.has(entry)) imageMap.set(entry, full)
       }
     } catch {}
   }
 }
 
 console.log('正在扫描图片文件...')
-scanImages(vaultPath)
+scanImages(sourcePath)
 for (const dir of extraDirs) {
-  console.log(`  扫描附件目录: ${dir}`)
+  console.log(`  附件目录: ${dir}`)
   scanImages(dir)
 }
-console.log(`  共找到 ${imageMap.size} 个图片文件`)
+console.log(`  共找到 ${imageMap.size} 个图片`)
 
-// ── Convert Obsidian content ──
+// ── Convert content ──
 function convertObsidian(content) {
-  // 1. Convert image embeds: ![[image.png]] → ![](/images/obsidian/image.png)
+  // ![[image.png|size]] → Markdown image, copy to obsidian folder
   content = content.replace(/!\[\[([^\]]+)\]\]/g, (match, ref) => {
     const cleanRef = ref.split('|')[0].trim()
-    let imageName = basename(cleanRef)
-    // Sanitize: replace spaces with hyphens
+    const imageName = basename(cleanRef)
     const safeName = imageName.replace(/\s+/g, '-')
     if (imageMap.has(imageName)) {
       try { copyFileSync(imageMap.get(imageName), join(IMAGES_DIR, safeName)) } catch {}
@@ -96,33 +97,32 @@ function convertObsidian(content) {
     return `![${imageName}](/personal-blog/images/obsidian/${encodeURIComponent(safeName)})`
   })
 
-  // 2. Convert wiki links: [[Page]] or [[Page|alias]]
+  // [[Page]] or [[Page|alias]] → markdown link
   content = content.replace(/\[\[([^\]|!]+?)(?:\|([^\]]+?))?\]\]/g, (match, page, alias) => {
     const label = alias || page
     const slug = page.trim().replace(/\s+/g, '-')
     return `[${label}](./${slug})`
   })
 
-  // 3. Convert callouts
+  // > [!note] → > **NOTE**
   const calloutMap = {
     note: 'NOTE', warning: 'WARNING', tip: 'TIP', info: 'INFO',
     danger: 'DANGER', example: 'EXAMPLE', abstract: 'ABSTRACT',
     todo: 'TODO', success: 'SUCCESS', question: 'QUESTION',
     failure: 'FAILURE', bug: 'BUG', quote: 'QUOTE',
   }
-  content = content.replace(/^\s*>\s*\[!(\w+)\]\s*(.*)$/gm, (match, type, rest) => {
+  content = content.replace(/^\s*>\s*\[!(\w+)\]\s*(.*)$/gm, (_, type, rest) => {
     const label = calloutMap[type.toLowerCase()] || type.toUpperCase()
     return `> **${label}** ${rest}`
   })
 
-  // 4. Remove Obsidian comments
   content = content.replace(/%%%.*?%%%/gs, '')
   content = content.replace(/%%.*?%%/gs, '')
 
   return content
 }
 
-// ── Process markdown files ──
+// ── Process files ──
 function processDirectory(dir, depth = 0) {
   let entries
   try { entries = readdirSync(dir) } catch { return }
@@ -131,15 +131,12 @@ function processDirectory(dir, depth = 0) {
     if (entry.startsWith('.')) continue
     try {
       const st = statSync(full)
-      if (st.isDirectory() && depth < 4) {
-        processDirectory(full, depth + 1)
-      } else if (entry.endsWith('.md')) {
-        console.log(`处理: ${relative(vaultPath, full)}`)
-        let content = readFileSync(full, 'utf-8')
-        content = convertObsidian(content)
-        const targetPath = join(targetDir, entry)
-        writeFileSync(targetPath, content, 'utf-8')
-        console.log(`  → src/content/${category}/${subfolder ? subfolder + '/' : ''}${entry}`)
+      if (st.isDirectory() && depth < 4) { processDirectory(full, depth + 1) }
+      else if (entry.endsWith('.md')) {
+        console.log(`处理: ${relative(sourcePath, full)}`)
+        const content = convertObsidian(readFileSync(full, 'utf-8'))
+        writeFileSync(join(targetDir, entry), content, 'utf-8')
+        console.log(`  → ${targetDisplay}/${entry}`)
       }
     } catch (err) {
       console.error(`  跳过 ${entry}: ${err.message}`)
@@ -147,9 +144,9 @@ function processDirectory(dir, depth = 0) {
   }
 }
 
-console.log(`\n正在从 "${vaultPath}" 导入到 src/content/${category}/${subfolder ? subfolder + '/' : ''}...`)
-processDirectory(vaultPath)
+console.log(`\n正在从 "${sourcePath}" 导入到 ${targetDisplay} ...`)
+processDirectory(sourcePath)
 
 console.log('\n✅ 导入完成！')
-console.log(`  内容 → src/content/${category}/${subfolder ? subfolder + '/' : ''}`)
+console.log(`  内容 → ${targetDisplay}`)
 console.log('  图片 → public/images/obsidian/')
