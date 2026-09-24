@@ -6,7 +6,7 @@ import { useMarkdown } from '../composables/useMarkdown'
 const BASE = import.meta.env.BASE_URL
 
 const {
-  posts, loading, activePost, tocItems,
+  posts, loading, activePost,
   categories, searchQuery, filteredPosts, selectPost,
 } = useMarkdown('/src/content/essays/')
 
@@ -22,7 +22,6 @@ onMounted(() => {
 <template>
   <LayoutWithSidebar
     placeholder="搜索随笔..."
-    :toc-items="tocItems"
     :categories="categories"
     :search-query="searchQuery"
     :active-id="activePost?.id"

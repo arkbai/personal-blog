@@ -1,25 +1,40 @@
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   placeholder: { type: String, default: '搜索笔记...' },
-  tocItems: { type: Array, default: () => [] },
+  sections: { type: Array, default: () => [] },
+  activeSection: { type: Number, default: 0 },
   categories: { type: Array, default: () => [] },
   searchQuery: { type: String, default: '' },
   activeId: { type: String, default: '' },
 })
 
-const emit = defineEmits(['update:searchQuery', 'selectPost'])
+const emit = defineEmits(['update:searchQuery', 'selectPost', 'selectSection'])
+
+const hasSections = computed(() => props.sections.length > 1)
+const prevTitle = computed(() =>
+  props.activeSection > 0 ? props.sections[props.activeSection - 1].title : ''
+)
+const nextTitle = computed(() =>
+  props.activeSection < props.sections.length - 1 ? props.sections[props.activeSection + 1].title : ''
+)
 
 function onSearchInput(e) {
   emit('update:searchQuery', e.target.value)
 }
+function goSection(i) {
+  if (i < 0 || i >= props.sections.length) return
+  emit('selectSection', i)
+}
 </script>
 
 <template>
-  <div class="max-w-5xl mx-auto px-6 pt-28 pb-16">
-    <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
-      <!-- Sidebar — always visible, fixed on desktop -->
-      <aside class="w-full lg:w-56 lg:shrink-0">
-        <nav class="lg:sticky lg:top-28 space-y-5 bg-white lg:bg-transparent rounded-2xl lg:rounded-none p-4 lg:p-0 shadow-sm lg:shadow-none border border-slate-100 lg:border-none">
+  <div class="w-full px-4 md:px-6 pt-24 md:pt-28 pb-16">
+    <div class="flex flex-col lg:flex-row gap-6">
+      <!-- Left sidebar — notes list + section list, sticky on desktop -->
+      <aside class="w-full lg:w-64 lg:shrink-0">
+        <nav class="lg:sticky lg:top-24 space-y-5 bg-white rounded-2xl lg:rounded-xl border border-slate-100 p-4 shadow-sm">
           <!-- Search bar -->
           <div class="relative">
             <svg class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -34,8 +49,8 @@ function onSearchInput(e) {
             />
           </div>
 
-          <!-- Categories & posts -->
-          <div class="space-y-4 max-h-64 lg:max-h-none overflow-y-auto">
+          <!-- Notes directory (top) -->
+          <div class="space-y-4 max-h-48 lg:max-h-[42vh] overflow-y-auto">
             <div v-for="[category, catPosts] in categories" :key="category">
               <h3 class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
                 {{ category }}
@@ -66,27 +81,22 @@ function onSearchInput(e) {
             无匹配笔记
           </p>
 
-          <!-- TOC divider -->
-          <div v-if="tocItems.length > 0" class="border-t border-slate-100 pt-4">
-            <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">当前目录</h3>
-            <ul class="space-y-0.5">
-              <li v-for="item in tocItems" :key="item.id">
-                <a
-                  :href="`#${item.id}`"
-                  class="block text-sm text-slate-500 hover:text-primary-500 transition-all py-1 px-2 rounded-md hover:bg-slate-100 active:bg-slate-200"
+          <!-- Section directory (bottom) — current note's heading titles -->
+          <div v-if="hasSections" class="border-t border-slate-100 pt-4">
+            <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">标题目录</h3>
+            <ul class="space-y-0.5 max-h-48 lg:max-h-[38vh] overflow-y-auto">
+              <li v-for="(s, i) in sections" :key="s.id">
+                <button
+                  :class="[
+                    'text-left w-full text-sm py-1 px-2 rounded-md transition-colors',
+                    i === activeSection
+                      ? 'bg-primary-50 text-primary-500 font-medium'
+                      : 'text-slate-500 hover:bg-slate-50'
+                  ]"
+                  @click="goSection(i)"
                 >
-                  {{ item.label }}
-                </a>
-                <ul v-if="item.children" class="ml-3 space-y-0.5">
-                  <li v-for="child in item.children" :key="child.id">
-                    <a
-                      :href="`#${child.id}`"
-                      class="block text-xs text-slate-400 hover:text-primary-500 transition-all py-0.5 px-2 rounded-md hover:bg-slate-100 active:bg-slate-200"
-                    >
-                      {{ child.label }}
-                    </a>
-                  </li>
-                </ul>
+                  {{ s.title }}
+                </button>
               </li>
             </ul>
           </div>
@@ -103,6 +113,28 @@ function onSearchInput(e) {
           </slot>
         </div>
       </article>
+
+      <!-- Right prev/next buttons — sticky, edge-aligned -->
+      <div v-if="hasSections" class="lg:w-40 lg:shrink-0 order-none lg:order-last">
+        <div class="flex lg:flex-col gap-2 lg:sticky lg:top-1/2 lg:-translate-y-1/2">
+          <button
+            :disabled="activeSection <= 0"
+            class="flex-1 lg:flex-none text-left px-3 py-2.5 rounded-xl border border-slate-200 bg-white/90 backdrop-blur-sm shadow-sm transition-all text-xs disabled:opacity-40 disabled:cursor-not-allowed hover:border-primary-200 hover:shadow"
+            @click="goSection(activeSection - 1)"
+          >
+            <span class="block text-[10px] text-slate-400 mb-0.5">← 上一节</span>
+            <span class="block truncate text-slate-600 font-medium">{{ prevTitle || '已是最前' }}</span>
+          </button>
+          <button
+            :disabled="activeSection >= sections.length - 1"
+            class="flex-1 lg:flex-none text-left px-3 py-2.5 rounded-xl border border-slate-200 bg-white/90 backdrop-blur-sm shadow-sm transition-all text-xs disabled:opacity-40 disabled:cursor-not-allowed hover:border-primary-200 hover:shadow"
+            @click="goSection(activeSection + 1)"
+          >
+            <span class="block text-[10px] text-slate-400 mb-0.5">下一节 →</span>
+            <span class="block truncate text-slate-600 font-medium">{{ nextTitle || '已是最后' }}</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>

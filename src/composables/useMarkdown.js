@@ -3,28 +3,36 @@ import { marked } from 'marked'
 
 marked.setOptions({ breaks: true, gfm: true })
 
+function renderMarkdown(md) {
+  // Pre-process: ==highlight== → <mark>highlight</mark>
+  const processed = md.replace(/==(.+?)==/g, '<mark>$1</mark>')
+  return marked.parse(processed)
+}
+
+// 按该笔记最浅的标题层级拆成多节：有 `#` 用 h1，否则 `##`，再否则 `###`；没有标题则整篇一节。
+function splitSections(raw) {
+  let level = 0
+  for (const l of [1, 2, 3]) {
+    if (new RegExp(`^#{${l}}\\s`, 'm').test(raw)) { level = l; break }
+  }
+  if (!level) {
+    return [{ id: 's0', title: '', html: renderMarkdown(raw) }]
+  }
+  const re = new RegExp(`^(#{${level}})\\s+(.+)$`, 'gm')
+  const matches = [...raw.matchAll(re)]
+  return matches.map((m, i) => {
+    const start = m.index + m[0].length
+    const end = i + 1 < matches.length ? matches[i + 1].index : raw.length
+    const body = raw.slice(start, end).trim()
+    return { id: `s${i}`, title: m[2].trim(), html: renderMarkdown(body) }
+  })
+}
+
 export function useMarkdown(globPattern) {
   const posts = ref([])
   const loading = ref(true)
   const activeId = ref(null)
   const searchQuery = ref('')
-
-  function extractToc(html) {
-    const headingRegex = /<h([23])[^>]*id="([^"]*)"[^>]*>(.*?)<\/h[23]>/g
-    const items = []
-    let match
-    while ((match = headingRegex.exec(html)) !== null) {
-      const level = parseInt(match[1])
-      const id = match[2]
-      const label = match[3].replace(/<[^>]*>/g, '')
-      if (level === 2) {
-        items.push({ id, label, children: [] })
-      } else if (level === 3 && items.length > 0) {
-        items[items.length - 1].children.push({ id, label })
-      }
-    }
-    return items
-  }
 
   function loadPosts() {
     try {
@@ -37,15 +45,12 @@ export function useMarkdown(globPattern) {
         const parts = rel.split('/')
         const filename = parts.pop().replace('.md', '')
         const category = parts.length > 0 ? parts.join('/') : ''
-        // Pre-process: ==highlight== → <mark>highlight</mark>
-        const processed = content.replace(/==(.+?)==/g, '<mark>$1</mark>')
-        const html = marked.parse(processed)
         results.push({
           id: path,
           title: filename,
           category,
-          html,
-          toc: extractToc(html),
+          html: renderMarkdown(content),
+          sections: splitSections(content),
         })
       }
       posts.value = results.sort((a, b) => {
@@ -63,8 +68,6 @@ export function useMarkdown(globPattern) {
   const activePost = computed(() =>
     posts.value.find((p) => p.id === activeId.value) || posts.value[0]
   )
-
-  const tocItems = computed(() => activePost.value?.toc || [])
 
   // Group posts by category for sidebar display
   const categories = computed(() => {
@@ -93,5 +96,5 @@ export function useMarkdown(globPattern) {
     activeId.value = id
   }
 
-  return { posts, loading, activePost, tocItems, categories, searchQuery, filteredPosts, selectPost }
+  return { posts, loading, activePost, categories, searchQuery, filteredPosts, selectPost }
 }

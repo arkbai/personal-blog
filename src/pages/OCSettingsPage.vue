@@ -4,7 +4,7 @@ import LayoutWithSidebar from '../components/LayoutWithSidebar.vue'
 import { useMarkdown } from '../composables/useMarkdown'
 
 const {
-  posts, loading, activePost, tocItems,
+  posts, loading, activePost,
   categories, searchQuery, filteredPosts, selectPost,
 } = useMarkdown('/src/content/oc-settings/')
 
@@ -18,7 +18,6 @@ onMounted(() => {
 <template>
   <LayoutWithSidebar
     placeholder="搜索OC设定..."
-    :toc-items="tocItems"
     :categories="categories"
     :search-query="searchQuery"
     :active-id="activePost?.id"
