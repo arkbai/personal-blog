@@ -72,8 +72,7 @@ function setVolume(e) {
         @click="randomTrack"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16 3h5v5M4 20l7-7m0-6l7 7M21 3l-5 5M9 14l-5 5" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 3v5h-5M3 21v-5h5" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
         </svg>
       </button>
 

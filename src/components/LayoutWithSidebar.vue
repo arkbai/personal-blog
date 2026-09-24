@@ -49,8 +49,8 @@ function goSection(i) {
         />
       </div>
 
-      <!-- Notes directory (top) -->
-      <div class="flex-1 overflow-y-auto mt-4 space-y-4 pr-1">
+      <!-- Notes directory (top, 70%) -->
+      <div class="overflow-y-auto mt-4 space-y-4 pr-1 min-h-0" :class="hasSections ? 'flex-[7]' : 'flex-1'">
         <div v-for="[category, catPosts] in categories" :key="category">
           <h3 class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
             {{ category }}
@@ -79,10 +79,13 @@ function goSection(i) {
         </p>
       </div>
 
-      <!-- Section directory (bottom) -->
-      <div v-if="hasSections" class="shrink-0 border-t border-slate-100 pt-3 mt-3">
-        <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">标题目录</h3>
-        <ul class="overflow-y-auto max-h-56 space-y-0.5">
+      <!-- Divider (fixed at 7:3) -->
+      <div v-if="hasSections" class="shrink-0 border-t border-gray-200 my-3"></div>
+
+      <!-- Section directory (bottom, 30%) -->
+      <div v-if="hasSections" class="flex-[3] min-h-0 flex flex-col">
+        <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 shrink-0">标题目录</h3>
+        <ul class="overflow-y-auto flex-1 min-h-0 space-y-0.5">
           <li v-for="(s, i) in sections" :key="s.id">
             <button
               :class="[

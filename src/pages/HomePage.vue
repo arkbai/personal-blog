@@ -7,7 +7,7 @@ const router = useRouter()
 
 const phase = ref('idle')
 const pinyinText = ref('')
-const fullPinyin = 'huan ying   welcome'
+const fullPinyin = 'Welcome'
 const cardsVisible = ref(false)
 let observer = null
 
@@ -79,9 +79,9 @@ function startAnimation() {
         <div
           v-if="phase === 'done'"
           class="text-7xl md:text-[5.4rem] lg:text-[7.2rem] leading-none text-black absolute whitespace-nowrap"
-          style="font-family: 'ZhouFang', var(--font-body); -webkit-text-stroke: 2px #ffffff; paint-order: stroke fill;"
+          style="font-family: 'ZhouFang', var(--font-body); -webkit-text-stroke: 2px #cbd5e1; paint-order: stroke fill;"
         >
-          欢迎   welcome
+          Welcome
         </div>
       </div>
 

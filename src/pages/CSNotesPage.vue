@@ -15,10 +15,12 @@ const currentSection = computed(() => activePost.value?.sections?.[activeSection
 function selectPost(id) {
   activeSection.value = 0
   selectPostRaw(id)
+  window.scrollTo(0, 0)
 }
 
 function selectSection(i) {
   activeSection.value = i
+  window.scrollTo(0, 0)
 }
 
 onMounted(() => {

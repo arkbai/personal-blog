@@ -1,12 +1,74 @@
 import { ref, computed } from 'vue'
 import { marked } from 'marked'
+import katex from 'katex'
+import 'katex/dist/katex.min.css'
 
 marked.setOptions({ breaks: true, gfm: true })
 
+// ── 行内/块级 LaTeX 渲染（$...$ / $$...$$）──
+const inlineMath = {
+  name: 'inlineMath',
+  level: 'inline',
+  start(src) { return src.indexOf('$') },
+  tokenizer(src) {
+    const match = /^\$([^$\n]+?)\$/.exec(src)
+    if (match) return { type: 'inlineMath', raw: match[0], text: match[1] }
+  },
+  renderer(token) {
+    try { return katex.renderToString(token.text, { throwOnError: false }) }
+    catch { return token.raw }
+  },
+}
+
+const blockMath = {
+  name: 'blockMath',
+  level: 'block',
+  start(src) { return src.indexOf('$$') },
+  tokenizer(src) {
+    const match = /^\$\$([\s\S]+?)\$\$/.exec(src)
+    if (match) return { type: 'blockMath', raw: match[0], text: match[1].trim() }
+  },
+  renderer(token) {
+    try { return katex.renderToString(token.text, { displayMode: true, throwOnError: false }) }
+    catch { return token.raw }
+  },
+}
+
+marked.use({ extensions: [inlineMath, blockMath] })
+
+// ── 预处理 ──
+// 1) ==高亮== → <mark>
+// 2) 图片后紧跟列表/引用（无空行）→ 补空行，让 `- ` / `> ` 正常渲染
+// 3) 分割线 `---`（3 个以上连字符）→ 显式 <hr>，避免被识别为 Setext 标题
+function preprocess(md) {
+  let processed = md.replace(/==(.+?)==/g, '<mark>$1</mark>')
+
+  const lines = processed.split('\n')
+  const out = []
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    const next = lines[i + 1]
+
+    // 分割线 → <hr>
+    if (/^-{3,}\s*$/.test(line)) {
+      out.push('<hr>')
+      continue
+    }
+
+    out.push(line)
+
+    // 图片后紧跟块级元素 → 补空行
+    if (next !== undefined) {
+      const isImage = /^\s*((<img\b[^>]*>)|(!\[[^\]]*\]\([^)]*\)))\s*$/.test(line)
+      const isBlock = /^\s*(?:[-*+]|\d+\.|>)\s+/.test(next)
+      if (isImage && isBlock) out.push('')
+    }
+  }
+  return out.join('\n')
+}
+
 function renderMarkdown(md) {
-  // Pre-process: ==highlight== → <mark>highlight</mark>
-  const processed = md.replace(/==(.+?)==/g, '<mark>$1</mark>')
-  return marked.parse(processed)
+  return marked.parse(preprocess(md))
 }
 
 // 按该笔记最浅的标题层级拆成多节：有 `#` 用 h1，否则 `##`，再否则 `###`；没有标题则整篇一节。
@@ -37,11 +99,11 @@ export function useMarkdown(globPattern) {
   function loadPosts() {
     try {
       const modules = import.meta.glob('/src/content/**/*.md', { query: '?raw', import: 'default', eager: true })
-      const basePrefix = globPattern.replace(/\/\*$/, '') // e.g. /src/content/cs-notes
+      const basePrefix = globPattern.replace(/\/\*$/, '')
       const results = []
       for (const [path, content] of Object.entries(modules)) {
         if (!path.startsWith(basePrefix)) continue
-        const rel = path.replace(basePrefix, '').replace(/^\//, '') // e.g. "操作系统/操作系统-408.md"
+        const rel = path.replace(basePrefix, '').replace(/^\//, '')
         const parts = rel.split('/')
         const filename = parts.pop().replace('.md', '')
         const category = parts.length > 0 ? parts.join('/') : ''
@@ -69,7 +131,6 @@ export function useMarkdown(globPattern) {
     posts.value.find((p) => p.id === activeId.value) || posts.value[0]
   )
 
-  // Group posts by category for sidebar display
   const categories = computed(() => {
     const map = new Map()
     for (const post of filteredPosts.value) {
@@ -77,7 +138,6 @@ export function useMarkdown(globPattern) {
       if (!map.has(cat)) map.set(cat, [])
       map.get(cat).push(post)
     }
-    // Sort: "未分类" last, others alphabetically
     const entries = [...map.entries()].sort((a, b) => {
       if (a[0] === '未分类') return 1
       if (b[0] === '未分类') return -1
