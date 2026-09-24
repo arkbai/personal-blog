@@ -7,7 +7,7 @@ const router = useRouter()
 
 const phase = ref('idle')
 const pinyinText = ref('')
-const fullPinyin = 'Welcome'
+const fullPinyin = 'Welcome(·ω<)☆'
 const cardsVisible = ref(false)
 let observer = null
 
