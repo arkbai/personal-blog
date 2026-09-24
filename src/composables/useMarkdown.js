@@ -45,14 +45,24 @@ function preprocess(md) {
 
   const lines = processed.split('\n')
   const out = []
+  let dedent = false // 顶部引用块之后的制表符缩进内容需要取消缩进（避免变成代码块）
+
   for (let i = 0; i < lines.length; i++) {
-    const line = lines[i]
+    let line = lines[i]
     const next = lines[i + 1]
 
     // 分割线 → <hr>
     if (/^-{3,}\s*$/.test(line)) {
       out.push('<hr>')
+      dedent = false
       continue
+    }
+
+    // 引用块后紧跟制表符/4空格缩进的列表 → 取消缩进，与上方引用对齐
+    if (dedent && /^(?:\t+| {4,})/.test(line)) {
+      line = line.replace(/^(?:\t+| {4,})/, '')
+    } else if (!/^(?:\t+| {4,})/.test(line)) {
+      dedent = false
     }
 
     out.push(line)
@@ -63,6 +73,9 @@ function preprocess(md) {
       const isBlock = /^\s*(?:[-*+]|\d+\.|>)\s+/.test(next)
       if (isImage && isBlock) out.push('')
     }
+
+    // 顶部引用块 `>` 之后进入取消缩进模式
+    if (/^>/.test(line)) dedent = true
   }
   return out.join('\n')
 }

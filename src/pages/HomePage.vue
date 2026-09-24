@@ -81,7 +81,7 @@ function startAnimation() {
           class="text-7xl md:text-[5.4rem] lg:text-[7.2rem] leading-none text-black absolute whitespace-nowrap"
           style="font-family: 'ZhouFang', var(--font-body); -webkit-text-stroke: 2px #cbd5e1; paint-order: stroke fill;"
         >
-          Welcome
+          Welcome<span style="font-family: var(--font-body), sans-serif;">(·ω&lt;)☆</span>
         </div>
       </div>
 

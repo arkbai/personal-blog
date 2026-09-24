@@ -156,6 +156,20 @@ function jumpToHeading(id) {
           </li>
         </ul>
       </div>
+      <div v-if="subHeadings.length > 0" class="border-t border-slate-100 pt-3">
+        <div class="relative mb-2">
+          <svg class="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input v-model="headingSearch" type="text" placeholder="搜索标题..." class="w-full pl-8 pr-3 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:border-primary-300 focus:ring-1 focus:ring-primary-100 transition-all text-slate-500 placeholder-slate-300" />
+        </div>
+        <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">标题目录</h3>
+        <ul class="space-y-0.5 max-h-52 overflow-y-auto">
+          <li v-for="h in filteredSubHeadings" :key="h.id">
+            <button :class="['text-left w-full text-sm py-1 px-2 rounded-md transition-colors truncate', h.level === 3 ? 'pl-5 text-slate-400 hover:text-primary-500 hover:bg-slate-50' : 'text-slate-500 hover:bg-slate-50 hover:text-primary-500']" @click="jumpToHeading(h.id)">{{ h.text }}</button>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <!-- ===== Desktop prev/next buttons (top corners) ===== -->
