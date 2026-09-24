@@ -28,9 +28,9 @@ router.beforeEach((to, from) => {
   <div class="min-h-screen flex flex-col bg-[#f0f6fc]">
     <NavBar />
     <main class="flex-1 relative overflow-hidden">
-      <router-view v-slot="{ Component }">
-        <transition :name="transitionName" mode="out-in">
-          <component :is="Component" />
+      <router-view v-slot="{ Component, route }">
+        <transition :name="transitionName">
+          <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
     </main>

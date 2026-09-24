@@ -79,7 +79,7 @@ function startAnimation() {
         <div
           v-if="phase === 'done'"
           class="text-7xl md:text-[5.4rem] lg:text-[7.2rem] leading-none text-black absolute whitespace-nowrap"
-          style="font-family: 'ZhouFang', var(--font-body); -webkit-text-stroke: 2px #cbd5e1; paint-order: stroke fill;"
+          style="font-family: 'ZhouFang', var(--font-body); text-shadow: 4px 4px 8px rgba(100, 116, 139, 0.5);"
         >
           Welcome<span style="font-family: var(--font-body), sans-serif;">(·ω&lt;)☆</span>
         </div>
