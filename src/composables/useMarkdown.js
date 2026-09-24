@@ -67,8 +67,28 @@ function preprocess(md) {
   return out.join('\n')
 }
 
+// 给 h2/h3 标题加 id，供「标题目录」锚点跳转
+function addHeadingIds(html) {
+  let i = 0
+  return html.replace(/<h([23])\b([^>]*)>/g, (m, lvl, attrs) => `<h${lvl} id="sub-${i++}"${attrs}>`)
+}
+
+// 从正文提取二、三级标题（## / ###），id 与 addHeadingIds 顺序一致
+function extractSubHeadings(body) {
+  const sub = []
+  const re = /^(#{2,3})\s+(.+)$/gm
+  for (const m of body.matchAll(re)) {
+    sub.push({
+      id: `sub-${sub.length}`,
+      level: m[1].length,
+      text: m[2].trim().replace(/==(.+?)==/g, '$1'),
+    })
+  }
+  return sub
+}
+
 function renderMarkdown(md) {
-  return marked.parse(preprocess(md))
+  return addHeadingIds(marked.parse(preprocess(md)))
 }
 
 // 按该笔记最浅的标题层级拆成多节：有 `#` 用 h1，否则 `##`，再否则 `###`；没有标题则整篇一节。
@@ -78,7 +98,7 @@ function splitSections(raw) {
     if (new RegExp(`^#{${l}}\\s`, 'm').test(raw)) { level = l; break }
   }
   if (!level) {
-    return [{ id: 's0', title: '', html: renderMarkdown(raw) }]
+    return [{ id: 's0', title: '', html: renderMarkdown(raw), subHeadings: extractSubHeadings(raw) }]
   }
   const re = new RegExp(`^(#{${level}})\\s+(.+)$`, 'gm')
   const matches = [...raw.matchAll(re)]
@@ -86,7 +106,7 @@ function splitSections(raw) {
     const start = m.index + m[0].length
     const end = i + 1 < matches.length ? matches[i + 1].index : raw.length
     const body = raw.slice(start, end).trim()
-    return { id: `s${i}`, title: m[2].trim(), html: renderMarkdown(body) }
+    return { id: `s${i}`, title: m[2].trim(), html: renderMarkdown(body), subHeadings: extractSubHeadings(body) }
   })
 }
 

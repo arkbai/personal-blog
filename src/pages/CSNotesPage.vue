@@ -34,6 +34,7 @@ onMounted(() => {
   <LayoutWithSidebar
     placeholder="搜索计算机笔记..."
     :sections="activePost?.sections || []"
+    :sub-headings="currentSection?.subHeadings || []"
     :active-section="activeSection"
     :categories="categories"
     :search-query="searchQuery"

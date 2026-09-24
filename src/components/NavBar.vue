@@ -5,14 +5,26 @@ import { useMusic } from '../composables/useMusic'
 
 const route = useRoute()
 const scrolled = ref(false)
+const hidden = ref(false)
 const mobileOpen = ref(false)
+let lastScrollY = 0
 
 const { playing, currentSong, togglePlay, nextTrack } = useMusic()
 
 if (typeof window !== 'undefined') {
   window.addEventListener('scroll', () => {
-    scrolled.value = window.scrollY > 40
+    const y = window.scrollY
+    scrolled.value = y > 40
+    // 向下滚动收起总栏，向上滚动或接近顶部时展开
+    if (y > lastScrollY && y > 120) hidden.value = true
+    else if (y < lastScrollY || y <= 120) hidden.value = false
+    lastScrollY = y
   })
+}
+
+function backToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+  hidden.value = false
 }
 
 const navItems = [
@@ -33,7 +45,8 @@ function isActive(path) {
 
 <template>
   <nav
-    class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm py-2.5"
+    class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm py-2.5 transition-transform duration-300"
+    :class="hidden ? '-translate-y-full' : ''"
   >
     <div class="w-full px-6 flex items-center justify-between">
       <!-- Left: Logo + Music bar -->
@@ -122,4 +135,16 @@ function isActive(path) {
       </router-link>
     </div>
   </nav>
+
+  <!-- Back to top (transparent, bottom-right) -->
+  <button
+    v-if="scrolled"
+    class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full flex items-center justify-center text-slate-500 bg-white/30 backdrop-blur-sm border border-white/50 hover:bg-white/70 hover:text-primary-500 transition-all shadow-sm"
+    title="回到顶部"
+    @click="backToTop"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
 </template>
