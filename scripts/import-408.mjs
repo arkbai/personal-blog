@@ -2,7 +2,7 @@
  * 408 考研复习笔记批量导入脚本
  *
  * 将 Obsidian 仓库中 4 个带 "-408" 后缀的笔记库导入博客 cs-notes：
- *   - 复制图片到 public/images/obsidian/ 并把相对地址改写为 /personal-blog/images/obsidian/...
+ *   - 复制图片到 public/images/obsidian/ 并把相对地址改写为 images/obsidian/...
  *   - 转换 Obsidian 特有语法（callout、图片宽度、frontmatter 等）
  *
  * 用法：
@@ -91,7 +91,7 @@ function resolveAndRewrite(ref) {
     copyFileSync(src, dest)
     copiedCount++
   }
-  return `/personal-blog/images/obsidian/${encodeURIComponent(finalName)}`
+  return `images/obsidian/${encodeURIComponent(finalName)}`
 }
 
 function convertContent(content) {

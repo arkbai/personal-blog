@@ -94,7 +94,7 @@ function convertObsidian(content) {
     } else if (imageMap.has(cleanRef)) {
       try { copyFileSync(imageMap.get(cleanRef), join(IMAGES_DIR, safeName)) } catch {}
     }
-    return `![${imageName}](/personal-blog/images/obsidian/${encodeURIComponent(safeName)})`
+    return `![${imageName}](images/obsidian/${encodeURIComponent(safeName)})`
   })
 
   // [[Page]] or [[Page|alias]] → markdown link

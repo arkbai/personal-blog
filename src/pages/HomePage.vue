@@ -139,7 +139,7 @@ function startAnimation() {
 <style scoped>
 @font-face {
   font-family: 'ZhouFang';
-  src: url('/personal-blog/fonts/ZhouFangRiMingTiXieTi-2.ttf') format('truetype');
+  src: url('../assets/fonts/ZhouFangRiMingTiXieTi-2.ttf') format('truetype');
   font-display: swap;
 }
 
