@@ -78,8 +78,8 @@ function startAnimation() {
         </transition>
         <div
           v-if="phase === 'done'"
-          class="text-6xl md:text-7xl lg:text-8xl text-black absolute whitespace-nowrap"
-          style="font-family: 'ZhouFang', var(--font-body); -webkit-text-stroke: 2px #1e40af; paint-order: stroke fill;"
+          class="text-7xl md:text-[5.4rem] lg:text-[7.2rem] leading-none text-black absolute whitespace-nowrap"
+          style="font-family: 'ZhouFang', var(--font-body); -webkit-text-stroke: 2px #ffffff; paint-order: stroke fill;"
         >
           欢迎   welcome
         </div>
@@ -107,7 +107,7 @@ function startAnimation() {
               <div
                 v-for="(section, i) in sections"
                 :key="section.name"
-                class="rounded-2xl p-5 cursor-pointer text-center group transition-all duration-500 mb-4 break-inside-avoid"
+                class="aspect-[4/3] rounded-2xl p-5 cursor-pointer text-center flex flex-col items-center justify-center group transition-all duration-500 mb-4 break-inside-avoid"
                 :class="cardsVisible
                   ? 'bg-white shadow-md hover:shadow-lg hover:scale-[1.02]'
                   : 'bg-white/30 backdrop-blur-md border border-white/50'"
