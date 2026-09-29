@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
+import FocusMode from '../components/FocusMode.vue'
 
 const BASE = import.meta.env.BASE_URL
 const router = useRouter()
@@ -9,6 +10,7 @@ const phase = ref('idle')
 const pinyinText = ref('')
 const fullPinyin = 'Welcome(·ω<)☆'
 const cardsVisible = ref(false)
+const focusVisible = ref(false)
 let observer = null
 
 const sections = [
@@ -18,6 +20,7 @@ const sections = [
   { name: '音乐', desc: '聆听与收藏', path: '/music', icon: '🎵', size: 'h-48' },
   { name: '待续', desc: '更多内容即将到来', path: '/upcoming', icon: '🚧', size: 'h-36' },
   { name: '留言', desc: '来都来了，说点什么吧', path: '/guestbook', icon: '💬', size: 'h-44' },
+  { name: '专注', desc: '沉浸式全屏时钟', path: null, action: 'focus', icon: '🧘', size: 'h-40' },
 ]
 
 onMounted(() => {
@@ -30,10 +33,19 @@ onMounted(() => {
     )
     observer.observe(el)
   }
+  document.addEventListener('fullscreenchange', onFullscreenChange)
+  document.addEventListener('keydown', onKeydown)
 })
 
 onUnmounted(() => {
   if (observer) observer.disconnect()
+  document.removeEventListener('fullscreenchange', onFullscreenChange)
+  document.removeEventListener('keydown', onKeydown)
+  document.body.style.overflow = ''
+})
+
+watch(focusVisible, (v) => {
+  document.body.style.overflow = v ? 'hidden' : ''
 })
 
 function startAnimation() {
@@ -48,13 +60,57 @@ function startAnimation() {
     }
   }, 100)
 }
+
+function onCardClick(section) {
+  if (section.action === 'focus') {
+    focusVisible.value = true
+    enterFullscreen()
+  } else {
+    router.push(section.path)
+  }
+}
+
+function enterFullscreen() {
+  const el = document.documentElement
+  const req = el.requestFullscreen || el.webkitRequestFullscreen
+  if (req) {
+    try {
+      const p = req.call(el)
+      if (p && typeof p.catch === 'function') p.catch(() => {})
+    } catch (e) {}
+  }
+}
+
+function exitFullscreen() {
+  const exit = document.exitFullscreen || document.webkitExitFullscreen
+  if (exit && (document.fullscreenElement || document.webkitFullscreenElement)) {
+    try { exit.call(document) } catch (e) {}
+  }
+}
+
+function closeFocus() {
+  exitFullscreen()
+  focusVisible.value = false
+}
+
+function onFullscreenChange() {
+  if (!document.fullscreenElement && !document.webkitFullscreenElement && focusVisible.value) {
+    focusVisible.value = false
+  }
+}
+
+function onKeydown(e) {
+  if (e.key === 'Escape' && focusVisible.value) {
+    closeFocus()
+  }
+}
 </script>
 
 <template>
   <div class="absolute inset-0 overflow-y-scroll snap-y snap-mandatory scroll-smooth">
     <!-- Fixed background image -->
     <div
-      class="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
+      class="fixed inset-0 bg-cover bg-center bg-no-repeat z-0 bg-slate-200"
       :style="{ backgroundImage: `url('${BASE}images/background/pic-1-chr-0007-ikut__2048x1024__53195f50c069.webp')` }"
     />
 
@@ -95,51 +151,54 @@ function startAnimation() {
       </transition>
     </section>
 
-    <!-- ═══ Screen 2: Cards (masonry 3-col) ═══ -->
+    <!-- ═══ Screen 2: Cards (4×3 grid) ═══ -->
     <section
       id="cards-section"
       class="h-full snap-start flex items-center relative overflow-hidden"
     >
-      <div class="w-full h-full px-4 md:px-8 py-16 flex items-center">
-        <div class="w-full h-full max-h-full">
-          <transition name="cards-enter">
-            <div v-if="cardsVisible" class="columns-3 gap-4">
-              <div
-                v-for="(section, i) in sections"
-                :key="section.name"
-                class="aspect-[4/3] rounded-2xl p-5 cursor-pointer text-center flex flex-col items-center justify-center group transition-all duration-500 mb-4 break-inside-avoid"
-                :class="cardsVisible
-                  ? 'bg-white shadow-md hover:shadow-lg hover:scale-[1.02]'
-                  : 'bg-white/30 backdrop-blur-md border border-white/50'"
-                :style="{ transitionDelay: `${i * 0.06}s` }"
-                @click="router.push(section.path)"
-              >
-                <div class="text-3xl mb-2">{{ section.icon }}</div>
-                <div class="text-base font-medium text-slate-700 group-hover:text-blue-500 transition-colors">
-                  {{ section.name }}
-                </div>
-                <div class="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                  {{ section.desc }}
-                </div>
+      <div class="w-full h-full px-4 md:px-8 py-16 flex flex-col">
+        <transition name="cards-enter">
+          <div
+            v-if="cardsVisible"
+            class="w-full flex-1 min-h-0 grid gap-3 md:gap-4 grid-cols-2 grid-rows-6 md:grid-cols-4 md:grid-rows-3"
+          >
+            <div
+              v-for="(section, i) in sections"
+              :key="section.name"
+              class="rounded-2xl p-3 md:p-4 cursor-pointer text-center flex flex-col items-center justify-center group transition-all duration-500 overflow-hidden"
+              :class="cardsVisible
+                ? 'bg-white shadow-md hover:shadow-lg hover:scale-[1.02]'
+                : 'bg-white/30 backdrop-blur-md border border-white/50'"
+              :style="{ transitionDelay: `${i * 0.06}s` }"
+              @click="onCardClick(section)"
+            >
+              <div class="text-2xl md:text-3xl mb-1">{{ section.icon }}</div>
+              <div class="text-sm md:text-base font-medium text-slate-700 group-hover:text-blue-500 transition-colors">
+                {{ section.name }}
+              </div>
+              <div class="text-[11px] md:text-xs text-slate-500 mt-1 leading-relaxed">
+                {{ section.desc }}
               </div>
             </div>
-          </transition>
+          </div>
+        </transition>
 
-          <transition name="fade">
-            <p v-if="cardsVisible" class="text-xs text-black/30 text-center mt-6 tracking-wider">
-              向上滚动回到欢迎
-            </p>
-          </transition>
-        </div>
+        <transition name="fade">
+          <p v-if="cardsVisible" class="shrink-0 text-xs text-black/30 text-center mt-4 tracking-wider">
+            向上滚动回到欢迎
+          </p>
+        </transition>
       </div>
     </section>
+
+    <FocusMode :visible="focusVisible" @close="closeFocus" />
   </div>
 </template>
 
 <style scoped>
 @font-face {
   font-family: 'ZhouFang';
-  src: url('../assets/fonts/ZhouFangRiMingTiXieTi-2.ttf') format('truetype');
+  src: url('../assets/fonts/ZhouFang-subset.woff2') format('woff2');
   font-display: swap;
 }
 
