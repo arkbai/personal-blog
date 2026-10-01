@@ -50,11 +50,13 @@ function preprocess(md) {
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i]
     const next = lines[i + 1]
+    const nextHasContent = next !== undefined && next.trim() !== ''
 
-    // 分割线 → <hr>
+    // 分割线 → <hr>（块级 HTML，后面需空行，否则会吞掉后续 markdown）
     if (/^-{3,}\s*$/.test(line)) {
       out.push('<hr>')
       dedent = false
+      if (nextHasContent) out.push('')
       continue
     }
 
@@ -67,11 +69,13 @@ function preprocess(md) {
 
     out.push(line)
 
-    // 图片后紧跟块级元素 → 补空行
-    if (next !== undefined) {
-      const isImage = /^\s*((<img\b[^>]*>)|(!\[[^\]]*\]\([^)]*\)))\s*$/.test(line)
-      const isBlock = /^\s*(?:[-*+]|\d+\.|>)\s+/.test(next)
-      if (isImage && isBlock) out.push('')
+    // <img> 等块级 HTML 独占一行时，后面补空行，否则会吞掉后续标题/列表/正文
+    if (nextHasContent && /^\s*<img\b[^>]*>\s*$/.test(line)) {
+      out.push('')
+    }
+    // markdown 图片后紧跟列表/引用 → 补空行
+    else if (nextHasContent && /^\s*!\[[^\]]*\]\([^)]*\)\s*$/.test(line)) {
+      if (/^\s*(?:[-*+]|\d+\.|>)\s+/.test(next)) out.push('')
     }
 
     // 顶部引用块 `>` 之后进入取消缩进模式
