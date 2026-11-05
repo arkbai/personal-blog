@@ -2,6 +2,21 @@ import { ref, computed } from 'vue'
 import { marked } from 'marked'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
+import hljs from 'highlight.js/lib/core'
+import cLang from 'highlight.js/lib/languages/c'
+import cppLang from 'highlight.js/lib/languages/cpp'
+import jsLang from 'highlight.js/lib/languages/javascript'
+import pyLang from 'highlight.js/lib/languages/python'
+import bashLang from 'highlight.js/lib/languages/bash'
+
+hljs.registerLanguage('c', cLang)
+hljs.registerLanguage('cpp', cppLang)
+hljs.registerLanguage('cc', cppLang)
+hljs.registerLanguage('javascript', jsLang)
+hljs.registerLanguage('js', jsLang)
+hljs.registerLanguage('python', pyLang)
+hljs.registerLanguage('bash', bashLang)
+hljs.registerLanguage('sh', bashLang)
 
 marked.setOptions({ breaks: true, gfm: true })
 
@@ -35,6 +50,27 @@ const blockMath = {
 }
 
 marked.use({ extensions: [inlineMath, blockMath] })
+
+// ── 代码块语法高亮（配色见 style.css 的 .hljs-*，VS Code Dark Modern 风格）──
+marked.use({
+  renderer: {
+    code({ text, lang }) {
+      const language = (lang || '').trim().split(/\s+/)[0].toLowerCase()
+      if (language && hljs.getLanguage(language)) {
+        try {
+          const highlighted = hljs.highlight(text, { language }).value
+          return `<pre><code class="hljs language-${language}">${highlighted}</code></pre>\n`
+        } catch (e) { /* 高亮失败则走下方纯文本 */ }
+      }
+      const escaped = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+      return `<pre><code>${escaped}</code></pre>\n`
+    },
+  },
+})
 
 // ── 预处理 ──
 // 1) ==高亮== → <mark>
